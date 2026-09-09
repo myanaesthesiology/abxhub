@@ -1,0 +1,5201 @@
+{
+  "meta": {
+    "appName": "ABX Critical",
+    "subtitle": "Antimicrobial ICU Reference",
+    "version": "0.6.0",
+    "dbVersion": "2026.09.09-expanded6",
+    "generated": "2026-09-09",
+    "sourceOrder": [
+      "hpusm",
+      "nag",
+      "msic",
+      "msidc",
+      "wellington"
+    ],
+    "disclaimer": "Clinical reference only. Verify the current local guideline, microbiology/susceptibility, patient factors and source control. Dose calculators do not replace pharmacist/ID review or TDM.",
+    "scope": "GitHub-first offline build with first-class NAG structured records, bundled source PDFs, exact in-app history/back navigation, expanded high-yield adult ICU syndromes and source provenance. Clinical validation remains required before institutional publication."
+  },
+  "sources": {
+    "hpusm": {
+      "id": "hpusm",
+      "short": "LOCAL",
+      "name": "HPUSM ASP 2025",
+      "full": "Guide to Antimicrobial Therapy — Antimicrobial Stewardship Programme, HPUSM",
+      "year": 2025,
+      "priority": 1,
+      "type": "local",
+      "note": "Local HPUSM antimicrobial guidance. Bundled PDF is linked from every HPUSM provenance record; local recommendations display first when applicable.",
+      "pdfUrl": "./references/HPUSM_ASP_2025.pdf"
+    },
+    "nag": {
+      "id": "nag",
+      "short": "NAG",
+      "name": "Malaysia NAG 4th Edition",
+      "full": "National Antimicrobial Guideline, Ministry of Health Malaysia, 4th Edition",
+      "year": 2024,
+      "priority": 2,
+      "type": "national-structured-live",
+      "url": "https://sites.google.com/moh.gov.my/nag",
+      "note": "First-class structured national source in this PWA. Snapshot reviewed 2026-09-09; the official NAG site remains the freshness authority and should be checked for later updates."
+    },
+    "msic": {
+      "id": "msic",
+      "short": "ICU",
+      "name": "MSIC Adult ICU 2023",
+      "full": "Guide to Antimicrobial Therapy in the Adult ICU, 4th Edition",
+      "year": 2023,
+      "priority": 3,
+      "type": "icu",
+      "note": "Adult ICU-focused national reference with PK/PD, RRT, TDM, obesity and special-population appendices.",
+      "url": "https://www.msic.org.my/wp-content/uploads/2024/05/Guide-to-Antimicrobial-Therapy-2023-4.pdf",
+      "pdfUrl": "./references/MSIC_Adult_ICU_Antimicrobial_2023.pdf"
+    },
+    "msidc": {
+      "id": "msidc",
+      "short": "MDR",
+      "name": "MSIDC MDR Gram-Negative 2024",
+      "full": "Consensus Guidelines on Treatment of Multidrug Resistant Gram Negatives, First Edition",
+      "year": 2024,
+      "priority": 4,
+      "type": "mdr",
+      "note": "Dedicated Malaysian consensus guidance for AmpC, ESBL, CRE, CRAB, resistant Pseudomonas and Stenotrophomonas.",
+      "url": "https://multi-drugresistanceguidelines.msidc.my/",
+      "pdfUrl": "./references/MSIDC_MDR_Gram_Negatives_2024.pdf"
+    },
+    "preg": {
+      "id": "preg",
+      "short": "PREG",
+      "name": "Legacy pregnancy source alias",
+      "full": "Antibiotic in Pregnancy and Lactation, Version 2 July 2024",
+      "year": 2024,
+      "priority": 4,
+      "type": "pregnancy",
+      "note": "Compatibility alias. Pregnancy/lactation records now cite Malaysia NAG Appendix 4 directly.",
+      "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+      "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf"
+    },
+    "wellington": {
+      "id": "wellington",
+      "short": "SPECTRUM",
+      "name": "Wellington ICU Spectrum 2022",
+      "full": "Wellington ICU Antibiotic Susceptibilities in Intensive Care",
+      "year": 2022,
+      "priority": 5,
+      "type": "spectrum",
+      "note": "Rapid spectrum guide only; local susceptibility and isolate-specific results supersede expected-spectrum displays.",
+      "pdfUrl": "./references/Wellington_ICU_Antibiotic_Summary_2022.pdf"
+    }
+  },
+  "drugs": [
+    {
+      "id": "meropenem",
+      "name": "Meropenem",
+      "aliases": [
+        "mero",
+        "meronem"
+      ],
+      "class": "Carbapenem · β-lactam",
+      "icu": true,
+      "quickDose": "LD 1 g IV, then 1 g IV q8h by prolonged infusion; CNS/MDR regimen uses 2 g dosing where indicated.",
+      "doseNotes": [
+        "MSIC ICU: standard LD 1 g over 30 min, then 1 g q8h over 4 h.",
+        "MSIC ICU: CNS infection/MDR organisms: LD 2 g, then 2 g q8h over 4 h.",
+        "Dose-adjust maintenance in renal impairment; loading dose is generally preserved unless source states otherwise."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure; prolonged infusion can improve fT>MIC target attainment in critical illness.",
+      "renalKey": "meropenem",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 2,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Broad-spectrum carbapenem: de-escalate when microbiology permits.",
+        "Review seizure/neurotoxicity risk in severe renal dysfunction and ensure dose adjustment."
+      ],
+      "indications": [
+        "hap-vap",
+        "esbl",
+        "cre",
+        "cns-infection",
+        "intra-abdominal",
+        "febrile-neutropenia",
+        "typhoid",
+        "lung-abscess-empyema",
+        "urosepsis",
+        "melioidosis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 139,
+          "pdfPage": 149
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "piperacillin-tazobactam",
+      "name": "Piperacillin–Tazobactam",
+      "aliases": [
+        "piperacillin tazobactam",
+        "pip-tazo",
+        "piptazo",
+        "tazocin",
+        "pip/tazo"
+      ],
+      "class": "Antipseudomonal penicillin · β-lactam/β-lactamase inhibitor",
+      "icu": true,
+      "quickDose": "MSIC ICU: LD 4.5 g IV, then 4.5 g q6h over 4 h; local disease-specific regimens may use q6–8h.",
+      "doseNotes": [
+        "For q8h administration in the current NAG severe CAP/lung abscess guidance, extended infusion over 3–4 h is specified.",
+        "Adjust maintenance dose for renal impairment/RRT."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure; prolonged infusion is useful when higher target attainment is required.",
+      "renalKey": "piperacillin-tazobactam",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "page": 2,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Does not provide MRSA coverage.",
+        "Use local antibiogram and isolate susceptibility; expected spectrum is not a susceptibility result."
+      ],
+      "indications": [
+        "hap-vap",
+        "severe-cap",
+        "urosepsis",
+        "septic-shock",
+        "necrotising-fasciitis",
+        "lung-abscess-empyema",
+        "copd-exacerbation",
+        "liver-abscess",
+        "cholecystitis",
+        "cholangitis",
+        "febrile-neutropenia",
+        "cellulitis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 139,
+          "pdfPage": 149
+        },
+        {
+          "source": "hpusm",
+          "page": 13
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "cefepime",
+      "name": "Cefepime",
+      "aliases": [
+        "maxipime"
+      ],
+      "class": "Fourth-generation cephalosporin · β-lactam",
+      "icu": true,
+      "quickDose": "MSIC ICU: LD 2 g IV, then 1–2 g q8–12h over 4 h; severe pneumonia commonly uses 2 g q8h.",
+      "doseNotes": [
+        "Higher dose is used in bacteraemia, endocarditis, meningitis and severe pneumonia in the MSIC renal appendix.",
+        "Renal adjustment is important because accumulation increases neurotoxicity risk."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam; extended infusion supports fT>MIC target attainment.",
+      "renalKey": "cefepime",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "MSIC notes higher neurotoxicity risk in elderly patients, renal impairment and inappropriate dosing.",
+        "No reliable anaerobic coverage; add an anaerobic agent when the syndrome requires it."
+      ],
+      "indications": [
+        "hap-vap",
+        "severe-cap",
+        "urosepsis",
+        "ampc",
+        "dtr-pseudomonas",
+        "copd-exacerbation",
+        "febrile-neutropenia",
+        "lung-abscess-empyema",
+        "infective-endocarditis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 137,
+          "pdfPage": 147
+        },
+        {
+          "source": "hpusm",
+          "page": 13
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "ceftazidime",
+      "name": "Ceftazidime",
+      "aliases": [
+        "fortum"
+      ],
+      "class": "Antipseudomonal third-generation cephalosporin · β-lactam",
+      "icu": true,
+      "quickDose": "MSIC ICU: LD 2 g IV, then 1–2 g q8h over 4 h; melioidosis/higher MIC regimen uses 2 g q6h over 4 h.",
+      "doseNotes": [
+        "Renal dose adjustment is required.",
+        "Current NAG severe CAP page states ceftazidime is not recommended for empirical CAP because of poor pneumococcal activity."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam; prolonged infusion is used in MSIC ICU dosing.",
+      "renalKey": "ceftazidime",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Do not infer pneumococcal coverage from “third-generation cephalosporin” label; syndrome-specific guidance matters."
+      ],
+      "indications": [
+        "septic-shock",
+        "melioidosis",
+        "dtr-pseudomonas",
+        "pyelonephritis",
+        "complicated-uti",
+        "urosepsis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 137,
+          "pdfPage": 147
+        },
+        {
+          "source": "hpusm",
+          "page": 11
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ]
+    },
+    {
+      "id": "vancomycin",
+      "name": "Vancomycin",
+      "aliases": [
+        "vanc",
+        "vanco"
+      ],
+      "class": "Glycopeptide",
+      "icu": true,
+      "quickDose": "MSIC ICU: LD 20–25 mg/kg actual body weight (max 2 g/dose), then maintenance guided by renal function and TDM.",
+      "doseNotes": [
+        "Normal renal function: 15–20 mg/kg q12h after loading dose in the MSIC TDM appendix.",
+        "AUC24/MIC target 400–600 is shown in the MSIC hypoalbuminaemia appendix; trough 15–20 mg/L is an alternate exposure indicator in selected contexts.",
+        "Infusion rate should not exceed 10 mg/min."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "partial",
+        "mrsa": "yes",
+        "atypicals": "no"
+      },
+      "pkpd": "Exposure-dependent killing; AUC-guided monitoring is preferred where feasible.",
+      "renalKey": "vancomycin",
+      "pregnancy": {
+        "category": "B (oral listed in source)",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 3,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 3
+      },
+      "warnings": [
+        "TDM is required for serious infections and changing renal function.",
+        "Vancomycin is inferior to antistaphylococcal β-lactams for MSSA when those agents can be used."
+      ],
+      "indications": [
+        "hap-vap",
+        "mrsa",
+        "clabsi",
+        "febrile-neutropenia",
+        "septic-arthritis",
+        "prosthetic-joint-infection",
+        "lung-abscess-empyema",
+        "infective-endocarditis",
+        "clostridioides-difficile"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 153,
+          "pdfPage": 163
+        },
+        {
+          "source": "hpusm",
+          "page": 15
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin"
+        }
+      ]
+    },
+    {
+      "id": "amoxicillin-clavulanate",
+      "name": "Amoxicillin–Clavulanate",
+      "aliases": [
+        "co-amoxiclav",
+        "augmentin",
+        "amox-clav",
+        "amoxiclav"
+      ],
+      "class": "Aminopenicillin · β-lactam/β-lactamase inhibitor",
+      "icu": false,
+      "quickDose": "Common adult IV regimen in the source set: 1.2 g q8h; some intra-abdominal/abscess indications use q6h.",
+      "doseNotes": [
+        "Use syndrome-specific regimen and renal adjustment."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "renalKey": "amoxicillin-clavulanate",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "No Pseudomonas coverage."
+      ],
+      "indications": [
+        "severe-cap",
+        "hap-vap",
+        "aspiration-pneumonia",
+        "brain-abscess",
+        "intra-abdominal",
+        "copd-exacerbation",
+        "liver-abscess",
+        "cholecystitis",
+        "cholangitis",
+        "lung-abscess-empyema",
+        "pyelonephritis",
+        "complicated-uti",
+        "cellulitis",
+        "spontaneous-bacterial-peritonitis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 135,
+          "pdfPage": 145
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "ceftriaxone",
+      "name": "Ceftriaxone",
+      "aliases": [
+        "rocephin"
+      ],
+      "class": "Third-generation cephalosporin · β-lactam",
+      "icu": false,
+      "quickDose": "Disease-specific adult regimens in the source set commonly use 1–2 g IV q24h or 1 g q12h; meningitis uses 2 g q12h.",
+      "doseNotes": [
+        "Select dose by indication rather than using a single universal regimen."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "No Pseudomonas coverage.",
+        "Avoid treating AmpC-risk organisms solely from a generic susceptible report without considering inducible resistance and syndrome."
+      ],
+      "indications": [
+        "severe-cap",
+        "hap-vap",
+        "cns-infection",
+        "brain-abscess",
+        "aspiration-pneumonia",
+        "pyelonephritis",
+        "copd-exacerbation",
+        "liver-abscess",
+        "cholecystitis",
+        "cholangitis",
+        "typhoid",
+        "complicated-uti",
+        "urosepsis",
+        "leptospirosis",
+        "spontaneous-bacterial-peritonitis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "msic",
+          "page": 27,
+          "pdfPage": 37
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "ampicillin-sulbactam",
+      "name": "Ampicillin–Sulbactam",
+      "aliases": [
+        "unasyn",
+        "amp-sulbactam"
+      ],
+      "class": "Aminopenicillin · β-lactam/β-lactamase inhibitor",
+      "icu": true,
+      "quickDose": "For susceptible Acinetobacter: 3 g IV q6h; high-dose sulbactam regimens are used for CRAB in local/MDR guidance.",
+      "doseNotes": [
+        "MSIC renal appendix lists 3 g q6h for Acinetobacter and 9 g q8h over 4 h for carbapenem-resistant Acinetobacter.",
+        "Local HPUSM targeted CRAB guidance includes high-dose extended infusion in moderate–severe infection."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam; high-dose sulbactam exposure is the key CRAB concept.",
+      "pregnancy": {
+        "category": "B (ampicillin); sulbactam listed with ampicillin",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Does not cover Pseudomonas.",
+        "CRAB therapy should be checked against dedicated MDR guidance and susceptibility data."
+      ],
+      "indications": [
+        "crab",
+        "lung-abscess-empyema",
+        "necrotising-fasciitis",
+        "liver-abscess",
+        "cholecystitis",
+        "cholangitis",
+        "pyelonephritis",
+        "complicated-uti",
+        "cellulitis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 136,
+          "pdfPage": 146
+        },
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    },
+    {
+      "id": "cloxacillin",
+      "name": "Cloxacillin",
+      "aliases": [
+        "flucloxacillin equivalent class",
+        "clox"
+      ],
+      "class": "Antistaphylococcal penicillin · β-lactam",
+      "icu": false,
+      "quickDose": "Serious MSSA infection regimens in the source set commonly use 2 g IV q4–6h.",
+      "doseNotes": [
+        "HPUSM states vancomycin should not be used for MSSA when an antistaphylococcal penicillin is appropriate."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Not active against MRSA."
+      ],
+      "indications": [
+        "mssa",
+        "infective-endocarditis",
+        "cellulitis",
+        "osteomyelitis",
+        "septic-arthritis",
+        "prosthetic-joint-infection"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 15
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ]
+    },
+    {
+      "id": "gentamicin",
+      "name": "Gentamicin",
+      "aliases": [
+        "gent"
+      ],
+      "class": "Aminoglycoside",
+      "icu": true,
+      "quickDose": "Dose is indication- and weight-specific; once-daily regimens are common. Use TDM and renal/RRT guidance.",
+      "doseNotes": [
+        "MSIC TDM guidance uses timed concentrations and more frequent monitoring when renal function changes or nephrotoxic drugs are present."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentration-dependent killing; target adequate peak exposure while limiting accumulation.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "page": 2,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Not appropriate monotherapy for Staphylococcus aureus in the Wellington ICU chart.",
+        "TDM and renal adjustment are essential."
+      ],
+      "indications": [
+        "infective-endocarditis",
+        "pyelonephritis",
+        "cre",
+        "dtr-pseudomonas"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 152,
+          "pdfPage": 162
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin"
+        }
+      ]
+    },
+    {
+      "id": "amikacin",
+      "name": "Amikacin",
+      "aliases": [
+        "amikin"
+      ],
+      "class": "Aminoglycoside",
+      "icu": true,
+      "quickDose": "Weight-based aminoglycoside; dosing interval and redosing require renal/RRT assessment and TDM.",
+      "doseNotes": [
+        "MSIC renal appendix gives RRT-specific regimens; use the TDM workspace for sampling reminders."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentration-dependent killing.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "TDM and renal adjustment are essential."
+      ],
+      "indications": [
+        "cre",
+        "dtr-pseudomonas",
+        "complicated-uti",
+        "febrile-neutropenia"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 135,
+          "pdfPage": 145
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin"
+        }
+      ]
+    },
+    {
+      "id": "trimethoprim-sulfamethoxazole",
+      "name": "Trimethoprim–Sulfamethoxazole",
+      "aliases": [
+        "co-trimoxazole",
+        "cotrimoxazole",
+        "bactrim",
+        "tmp-smx",
+        "tmp/smx"
+      ],
+      "class": "Folate antagonists",
+      "icu": false,
+      "quickDose": "Dose by TMP component and indication; severe Stenotrophomonas regimens use high-dose TMP-based therapy in the local guidance.",
+      "doseNotes": [
+        "HPUSM targeted Stenotrophomonas: 15 mg/kg/day TMP component in 3–4 divided doses.",
+        "MSIC organism-specific ICU table uses 5 mg/kg TMP component q8h for Stenotrophomonas. Keep source-specific regimens separate."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "partial",
+        "atypicals": "no"
+      },
+      "pkpd": "Exposure depends on indication; dose calculations are based on trimethoprim component.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; not recommended in infants <2 months",
+        "source": "nag",
+        "page": 2,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Monitor potassium and renal function in high-dose therapy.",
+        "Do not merge differing source doses without considering indication and severity."
+      ],
+      "indications": [
+        "stenotrophomonas",
+        "esbl",
+        "cre",
+        "pcp",
+        "melioidosis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 17
+        },
+        {
+          "source": "msic",
+          "page": 118,
+          "pdfPage": 128
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ]
+    },
+    {
+      "id": "azithromycin",
+      "name": "Azithromycin",
+      "aliases": [
+        "zithromax",
+        "azithro"
+      ],
+      "class": "Macrolide",
+      "icu": false,
+      "quickDose": "Severe CAP regimens in the source set commonly use 500 mg IV/PO q24h as atypical coverage.",
+      "doseNotes": [
+        "Duration varies by syndrome and confirmed pathogen."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "yes"
+      },
+      "pkpd": "Useful for atypical respiratory pathogens; not a broad Gram-negative ICU agent.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Consider QT interval and interacting QT-prolonging drugs."
+      ],
+      "indications": [
+        "severe-cap",
+        "leptospirosis",
+        "copd-exacerbation",
+        "typhoid"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 27,
+          "pdfPage": 37
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "ertapenem",
+      "name": "Ertapenem",
+      "aliases": [
+        "invanz"
+      ],
+      "class": "Carbapenem · β-lactam",
+      "icu": false,
+      "quickDose": "1 g IV q24h in normal renal function; selected ESBL syndromes use ertapenem when antipseudomonal coverage is unnecessary.",
+      "doseNotes": [
+        "MSIC notes that ertapenem is not recommended in critically ill patients with hypoalbuminaemia."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 3,
+        "pseudomonas": "no",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam; highly protein bound.",
+      "renalKey": "ertapenem",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 1,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "No Pseudomonas coverage.",
+        "Avoid as default carbapenem in critically ill hypoalbuminaemic patients per MSIC ICU guidance."
+      ],
+      "indications": [
+        "esbl"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 138,
+          "pdfPage": 148
+        },
+        {
+          "source": "msic",
+          "page": 142,
+          "pdfPage": 152
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        }
+      ]
+    },
+    {
+      "id": "imipenem",
+      "name": "Imipenem–Cilastatin",
+      "aliases": [
+        "imipenem",
+        "tienam"
+      ],
+      "class": "Carbapenem · β-lactam",
+      "icu": true,
+      "quickDose": "MSIC ICU: LD 1 g IV, then imipenem 500 mg q6h over 4 h; renal adjustment required.",
+      "doseNotes": [
+        "Proteus spp are intrinsically less susceptible/resistant to imipenem in the MSIC organism-specific table."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "renalKey": "imipenem",
+      "pregnancy": {
+        "category": "C (imipenem/cilastatin)",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "page": 2,
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Renal dose adjustment is important."
+      ],
+      "indications": [
+        "hap-vap",
+        "esbl",
+        "cre",
+        "febrile-neutropenia",
+        "urosepsis",
+        "melioidosis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 138,
+          "pdfPage": 148
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "ampicillin",
+      "name": "Ampicillin",
+      "aliases": [
+        "amp"
+      ],
+      "icu": true,
+      "quickDose": "Common high-severity regimens use 2 g IV q4–6h; meningitis/Listeria coverage uses 2 g IV q4h in NAG/HPUSM pathways.",
+      "doseNotes": [
+        "NAG acute meningitis: 2 g IV q4h when Listeria coverage is indicated.",
+        "MSIC renal appendix: higher doses may be used in bacteraemia, endocarditis, meningitis and obesity; maintenance is renal/RRT adjusted."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "partial",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "renalKey": "ampicillin",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; compatible",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Adjust maintenance dose in renal impairment."
+      ],
+      "indications": [
+        "cns-infection",
+        "infective-endocarditis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        },
+        {
+          "source": "msic",
+          "page": 136,
+          "pdfPage": 146
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Aminopenicillin · β-lactam"
+    },
+    {
+      "id": "benzylpenicillin",
+      "name": "Benzylpenicillin",
+      "aliases": [
+        "penicillin g",
+        "benzyl penicillin"
+      ],
+      "icu": true,
+      "quickDose": "Severe leptospirosis: 1.5 million units IV q6h in HPUSM/MSIC/NAG pathways; other indications use source-specific high-dose regimens.",
+      "doseNotes": [
+        "NAG severe leptospirosis: 1.5 MU IV q6h.",
+        "MSIC renal appendix: usual 2–4 MU q4–6h with renal/RRT adjustment."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "partial",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "renalKey": "benzylpenicillin",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [],
+      "indications": [
+        "leptospirosis",
+        "infective-endocarditis"
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        },
+        {
+          "source": "msic",
+          "page": 136,
+          "pdfPage": 146
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Natural penicillin · β-lactam"
+    },
+    {
+      "id": "cefotaxime",
+      "name": "Cefotaxime",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "CNS and severe systemic regimens are indication-specific; NAG meningitis uses 2 g IV q6h as an alternative to ceftriaxone.",
+      "doseNotes": [
+        "NAG acute meningitis alternative: cefotaxime 2 g IV q6h + ampicillin when Listeria coverage is indicated.",
+        "NAG urosepsis without shock: cefotaxime 2 g IV q8h is a preferred option."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [],
+      "indications": [
+        "cns-infection",
+        "brain-abscess",
+        "urosepsis",
+        "liver-abscess",
+        "cholecystitis",
+        "cholangitis",
+        "typhoid",
+        "spontaneous-bacterial-peritonitis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ],
+      "class": "3rd-generation cephalosporin · β-lactam"
+    },
+    {
+      "id": "cefuroxime",
+      "name": "Cefuroxime",
+      "aliases": [
+        "zinacef"
+      ],
+      "icu": false,
+      "quickDose": "Common inpatient dose 750 mg–1.5 g IV q8h depending on syndrome; renal adjustment applies.",
+      "doseNotes": [
+        "HPUSM pyelonephritis: 750–1500 mg IV q8h as an alternative.",
+        "NAG complicated UTI: 750–1500 mg IV q8h is an alternative."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [],
+      "indications": [
+        "pyelonephritis",
+        "complicated-uti",
+        "liver-abscess",
+        "cholecystitis"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 9
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "2nd-generation cephalosporin · β-lactam"
+    },
+    {
+      "id": "cefazolin",
+      "name": "Cefazolin",
+      "aliases": [
+        "cefaz"
+      ],
+      "icu": false,
+      "quickDose": "2 g IV q6–8h appears in NAG bone/joint pathways; dose adjust in renal impairment.",
+      "doseNotes": [
+        "NAG acute osteomyelitis alternative: cefazolin 2 g IV q6–8h.",
+        "MSIC renal appendix: normal dose 2 g q8h with renal/RRT adjustment."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "renalKey": "cefazolin",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Insufficient data; caution",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [],
+      "indications": [
+        "osteomyelitis",
+        "septic-arthritis",
+        "prosthetic-joint-infection",
+        "cellulitis"
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        },
+        {
+          "source": "msic",
+          "page": 137,
+          "pdfPage": 147
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "1st-generation cephalosporin · β-lactam"
+    },
+    {
+      "id": "metronidazole",
+      "name": "Metronidazole",
+      "aliases": [
+        "flagyl"
+      ],
+      "icu": true,
+      "quickDose": "500 mg IV/PO q8h is commonly used for anaerobic coverage when the syndrome specifically requires it.",
+      "doseNotes": [
+        "HPUSM brain abscess: 500 mg IV q8h with ceftriaxone.",
+        "NAG aspiration pneumonia: add only when anaerobic coverage is specifically indicated; routine anaerobic coverage is not required unless abscess/empyema is suspected."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "yes",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Anaerobic/protozoal activity; not a broad aerobic antibacterial.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; not recommended in the source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Use for an anaerobic indication rather than as stand-alone broad-spectrum therapy."
+      ],
+      "indications": [
+        "brain-abscess",
+        "aspiration-pneumonia",
+        "lung-abscess-empyema",
+        "liver-abscess",
+        "febrile-neutropenia",
+        "clostridioides-difficile"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Nitroimidazole"
+    },
+    {
+      "id": "clindamycin",
+      "name": "Clindamycin",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "600–900 mg IV q8h is used in selected severe anaerobic/toxin-suppression pathways; syndrome-specific.",
+      "doseNotes": [
+        "HPUSM necrotising fasciitis: 600–900 mg IV q8h may be added.",
+        "NAG aspiration pneumonia: 600 mg IV/PO q8h is an antibiotic-allergy alternative."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "partial",
+        "mrsa": "partial",
+        "atypicals": "no"
+      },
+      "pkpd": "Protein synthesis inhibitor; useful in selected toxin-mediated Gram-positive infections and some anaerobic infections.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; not recommended in the source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "C. difficile risk is clinically important."
+      ],
+      "indications": [
+        "necrotising-fasciitis",
+        "aspiration-pneumonia",
+        "osteomyelitis",
+        "cellulitis",
+        "septic-arthritis",
+        "lung-abscess-empyema"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Lincosamide"
+    },
+    {
+      "id": "ciprofloxacin",
+      "name": "Ciprofloxacin",
+      "aliases": [
+        "cipro"
+      ],
+      "icu": false,
+      "quickDose": "IV 400 mg q8–12h or oral syndrome-specific regimens; renal adjustment applies.",
+      "doseNotes": [
+        "MSIC renal appendix: normal IV dose 400 mg q8–12h, with reduced interval in renal dysfunction and HD.",
+        "MSIDC uses ciprofloxacin only when susceptibility/site/severity support it in selected MDR Gram-negative infections."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "partial"
+      },
+      "pkpd": "Concentration/AUC-dependent exposure.",
+      "renalKey": "ciprofloxacin",
+      "pregnancy": {
+        "category": "C",
+        "lactation": "Present in human milk; not recommended in source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Fluoroquinolone adverse-effect and stewardship concerns require indication-specific use."
+      ],
+      "indications": [
+        "ampc",
+        "cre",
+        "dtr-pseudomonas",
+        "typhoid",
+        "spontaneous-bacterial-peritonitis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 138,
+          "pdfPage": 148
+        },
+        {
+          "source": "msidc",
+          "page": 18
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Fluoroquinolone"
+    },
+    {
+      "id": "levofloxacin",
+      "name": "Levofloxacin",
+      "aliases": [
+        "levo"
+      ],
+      "icu": false,
+      "quickDose": "750 mg IV/PO q24h in normal renal function for selected syndromes; renal adjustment required.",
+      "doseNotes": [
+        "MSIC renal appendix: 750 mg q24h normally; 750 mg q48h at CrCl 31–50, 500 mg q48h at lower CrCl; HD 500 mg q48h; CRRT 500 mg q24h.",
+        "NAG reserves respiratory fluoroquinolone use for selected alternatives such as significant β-lactam allergy."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "partial",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "yes"
+      },
+      "pkpd": "AUC/MIC-driven fluoroquinolone exposure.",
+      "renalKey": "levofloxacin",
+      "pregnancy": {
+        "category": "C",
+        "lactation": "Present in human milk; not recommended in source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Reserve where appropriate because of class adverse effects and ecological impact."
+      ],
+      "indications": [
+        "severe-cap",
+        "stenotrophomonas"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 139,
+          "pdfPage": 149
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "class": "Respiratory fluoroquinolone"
+    },
+    {
+      "id": "doxycycline",
+      "name": "Doxycycline",
+      "aliases": [
+        "doxy"
+      ],
+      "icu": false,
+      "quickDose": "100 mg PO/IV q12h is used in several NAG respiratory/tropical pathways; duration varies by syndrome.",
+      "doseNotes": [
+        "NAG severe CAP: may add doxycycline 100 mg PO q12h for 5–7 days when atypical coverage is desired.",
+        "NAG mild leptospirosis: 100 mg PO q12h for 5–7 days."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "partial",
+        "atypicals": "yes"
+      },
+      "pkpd": "Protein synthesis inhibitor with intracellular/atypical activity.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; source notes short courses may be compatible but long-term therapy is not recommended",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 1,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 1
+      },
+      "warnings": [
+        "Avoid/seek alternatives in pregnancy unless a specific specialist indication outweighs risk."
+      ],
+      "indications": [
+        "severe-cap",
+        "leptospirosis",
+        "typhoid"
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ],
+      "class": "Tetracycline"
+    },
+    {
+      "id": "nitrofurantoin",
+      "name": "Nitrofurantoin",
+      "aliases": [],
+      "icu": false,
+      "quickDose": "Lower-tract UTI only; not for pyelonephritis or sepsis. Dose/renal restrictions apply.",
+      "doseNotes": [
+        "NAG uncomplicated cystitis pathways use nitrofurantoin as a lower-tract option; avoid when renal function is inadequate for effective urinary exposure.",
+        "MSIDC lists nitrofurantoin among preferred options for susceptible uncomplicated cystitis in selected ESBL/CRE contexts."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentrates in urine; tissue/serum exposure is inadequate for upper-tract or systemic infection.",
+      "pregnancy": {
+        "category": "B",
+        "lactation": "Present in human milk; not recommended in source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Do not use for pyelonephritis or urosepsis.",
+        "NAG notes renal and late-pregnancy restrictions in its UTI guidance."
+      ],
+      "indications": [
+        "esbl",
+        "cre"
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        },
+        {
+          "source": "msidc",
+          "page": 25
+        }
+      ],
+      "class": "Urinary antiseptic"
+    },
+    {
+      "id": "linezolid",
+      "name": "Linezolid",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "600 mg IV/PO q12h in selected resistant Gram-positive infections; no routine renal interval adjustment but toxicity monitoring matters.",
+      "doseNotes": [
+        "MSIC HAP/VAP lists linezolid 600 mg q12h as an alternative for MRSA pneumonia.",
+        "NAG neutropenia guidance lists linezolid as an alternative when vancomycin is unsuitable/non-responsive in selected resistant Gram-positive contexts."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "yes",
+        "atypicals": "no"
+      },
+      "pkpd": "Time/AUC-dependent Gram-positive activity with excellent oral bioavailability.",
+      "pregnancy": {
+        "category": "C",
+        "lactation": "Present in human milk; caution",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Monitor cytopenias with prolonged therapy and review serotonergic interactions."
+      ],
+      "indications": [
+        "mrsa",
+        "hap-vap"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 40,
+          "pdfPage": 50
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Oxazolidinone"
+    },
+    {
+      "id": "daptomycin",
+      "name": "Daptomycin",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "6–10 mg/kg IV q24h in MSIC renal appendix; q48h in significant renal dysfunction/HD contexts.",
+      "doseNotes": [
+        "MSIC renal appendix: 6–10 mg/kg q24h normally; q48h in CrCl <30/HD; CRRT 6 mg/kg q24–48h.",
+        "Not a pneumonia drug; syndrome/site selection is essential."
+      ],
+      "spectrum": {
+        "gramPositive": 3,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "yes",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentration-dependent bactericidal Gram-positive activity.",
+      "renalKey": "daptomycin",
+      "pregnancy": null,
+      "warnings": [
+        "Monitor creatine kinase / myopathy risk.",
+        "Do not use for pneumonia."
+      ],
+      "indications": [
+        "mrsa"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 138,
+          "pdfPage": 148
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Lipopeptide"
+    },
+    {
+      "id": "fluconazole",
+      "name": "Fluconazole",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "In invasive candidiasis, MSIC uses an 800 mg day-1 load then 400 mg q24h in selected stable/azole-susceptible contexts.",
+      "doseNotes": [
+        "MSIC invasive candidiasis: fluconazole is a selected first-line option in haemodynamically stable patients without prior azole exposure and susceptible Candida.",
+        "Renal replacement therapy can materially change dosing."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 0,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Azole antifungal; exposure and susceptibility are species dependent.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; compatible in source table",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Candida species/susceptibility and haemodynamic status matter."
+      ],
+      "indications": [
+        "invasive-candidiasis"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 119,
+          "pdfPage": 129
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation"
+        }
+      ],
+      "class": "Triazole antifungal"
+    },
+    {
+      "id": "polymyxin-b",
+      "name": "Polymyxin B",
+      "aliases": [
+        "polymyxin b"
+      ],
+      "icu": true,
+      "quickDose": "Reserve agent for selected MDR Gram-negative infections; dosing and loading strategy are specialist/TDM/organ-function dependent.",
+      "doseNotes": [
+        "HPUSM severe CRE and MSIDC MDR guidance include polymyxin B in selected resistant Gram-negative scenarios.",
+        "MSIDC generally prefers polymyxin B over colistin for non-urinary CRAB/CRE scenarios when a polymyxin is required."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentration-dependent activity with narrow therapeutic window.",
+      "pregnancy": null,
+      "warnings": [
+        "High nephrotoxicity/neurotoxicity risk; reserve for appropriate MDR indications."
+      ],
+      "indications": [
+        "cre",
+        "crab",
+        "dtr-pseudomonas"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "page": 42
+        },
+        {
+          "source": "msic",
+          "page": 146
+        }
+      ],
+      "class": "Polymyxin"
+    },
+    {
+      "id": "colistin",
+      "name": "Colistin (Polymyxin E)",
+      "aliases": [
+        "polymyxin e"
+      ],
+      "icu": true,
+      "quickDose": "Reserve agent for selected MDR Gram-negative infections; loading/maintenance are source- and renal-function-specific.",
+      "doseNotes": [
+        "MSIC/HPUSM include colistin in selected CRAB/CRE pathways.",
+        "MSIDC differentiates polymyxin B and colistin by infection site, with colistin particularly considered for urinary infection when a polymyxin is required."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Concentration-dependent activity with narrow therapeutic window.",
+      "pregnancy": null,
+      "warnings": [
+        "High nephrotoxicity/neurotoxicity risk; renal dosing and loading guidance are essential."
+      ],
+      "indications": [
+        "cre",
+        "crab",
+        "dtr-pseudomonas"
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 117,
+          "pdfPage": 127
+        },
+        {
+          "source": "msidc",
+          "page": 42
+        }
+      ],
+      "class": "Polymyxin"
+    },
+    {
+      "id": "ceftolozane-tazobactam",
+      "name": "Ceftolozane–Tazobactam",
+      "aliases": [
+        "c-t",
+        "ceftolozane tazobactam"
+      ],
+      "icu": true,
+      "quickDose": "HPUSM targeted DTR Pseudomonas: 3 g IV q8h in selected mild–severe infections; susceptibility and ID authorisation apply.",
+      "doseNotes": [
+        "HPUSM lists 3 g IV q8h for MDR/XDR/DTR Pseudomonas in targeted therapy.",
+        "MSIDC dedicated DTR Pseudomonas guidance lists ceftolozane–tazobactam among preferred newer β-lactam options when active."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure; optimise infusion according to local protocol.",
+      "pregnancy": null,
+      "warnings": [
+        "Use susceptibility and dedicated MDR guidance; renal adjustment is required."
+      ],
+      "indications": [
+        "dtr-pseudomonas"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "page": 48
+        }
+      ],
+      "class": "Antipseudomonal cephalosporin/β-lactamase inhibitor"
+    },
+    {
+      "id": "ceftazidime-avibactam",
+      "name": "Ceftazidime–Avibactam",
+      "aliases": [
+        "caz-avi",
+        "ceftaz avi"
+      ],
+      "icu": true,
+      "quickDose": "Dedicated MDR option for selected CRE/DTR Pseudomonas when susceptibility/mechanism support activity.",
+      "doseNotes": [
+        "MSIDC CRE guidance uses ceftazidime–avibactam as a preferred option for susceptible carbapenem-resistant Enterobacterales outside the urinary tract.",
+        "For MBL/NDM CRE, MSIDC uses ceftazidime–avibactam together with aztreonam rather than ceftazidime–avibactam alone."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 3,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure; activity depends strongly on β-lactamase mechanism.",
+      "pregnancy": null,
+      "warnings": [
+        "Carbapenemase mechanism matters; not active alone against metallo-β-lactamases."
+      ],
+      "indications": [
+        "cre",
+        "dtr-pseudomonas"
+      ],
+      "refs": [
+        {
+          "source": "msidc",
+          "page": 34
+        }
+      ],
+      "class": "Cephalosporin/β-lactamase inhibitor"
+    },
+    {
+      "id": "aztreonam",
+      "name": "Aztreonam",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "Specialist MDR role, especially paired with ceftazidime–avibactam for selected MBL/NDM CRE in MSIDC guidance.",
+      "doseNotes": [
+        "MSIDC: ceftazidime–avibactam + aztreonam is a preferred strategy for selected MBL/NDM CRE outside urinary tract."
+      ],
+      "spectrum": {
+        "gramPositive": 0,
+        "gramNegative": 2,
+        "pseudomonas": "yes",
+        "anaerobes": "no",
+        "mrsa": "no",
+        "atypicals": "no"
+      },
+      "pkpd": "Time-dependent β-lactam exposure.",
+      "pregnancy": null,
+      "warnings": [
+        "Do not infer MBL activity from aztreonam alone; co-produced serine β-lactamases can inactivate it."
+      ],
+      "indications": [
+        "cre"
+      ],
+      "refs": [
+        {
+          "source": "msidc",
+          "page": 34
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Monobactam · β-lactam"
+    },
+    {
+      "id": "tigecycline",
+      "name": "Tigecycline",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "Specialist salvage/targeted option in selected MDR infections; site and serum exposure limitations matter.",
+      "doseNotes": [
+        "HPUSM severe CRE pathway lists tigecycline 100 mg q12h as one selected option requiring ID approval.",
+        "MSIDC reserves high-dose tigecycline for selected CRE when preferred active β-lactams are unavailable; avoid relying on it for bacteraemia."
+      ],
+      "spectrum": {
+        "gramPositive": 2,
+        "gramNegative": 2,
+        "pseudomonas": "no",
+        "anaerobes": "yes",
+        "mrsa": "yes",
+        "atypicals": "partial"
+      },
+      "pkpd": "AUC/MIC-driven glycylcycline exposure.",
+      "pregnancy": null,
+      "warnings": [
+        "Low serum/urinary concentrations limit use for bacteraemia/UTI."
+      ],
+      "indications": [
+        "cre"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "page": 34
+        },
+        {
+          "source": "wellington",
+          "page": 1
+        }
+      ],
+      "class": "Glycylcycline"
+    },
+    {
+      "id": "minocycline",
+      "name": "Minocycline",
+      "aliases": [],
+      "icu": true,
+      "quickDose": "MSIDC companion option in selected CRAB/Stenotrophomonas regimens when susceptibility/site support use.",
+      "doseNotes": [
+        "MSIDC CRAB guidance uses minocycline as a companion with high-dose ampicillin–sulbactam in selected infections.",
+        "MSIDC Stenotrophomonas guidance allows minocycline as a companion based on susceptibility in moderate–severe disease."
+      ],
+      "spectrum": {
+        "gramPositive": 1,
+        "gramNegative": 1,
+        "pseudomonas": "no",
+        "anaerobes": "no",
+        "mrsa": "partial",
+        "atypicals": "partial"
+      },
+      "pkpd": "Tetracycline-class exposure; site-specific limitations matter.",
+      "pregnancy": {
+        "category": "D",
+        "lactation": "Present in human milk; source notes short courses may be compatible but long-term therapy is not recommended",
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+        "page": 2,
+        "snapshot": "Version 2 · July 2024",
+        "pdfUrl": "./references/NAG_Pregnancy_Lactation_2024.pdf",
+        "pdfPage": 2
+      },
+      "warnings": [
+        "Low serum/urinary exposure limits some severe bloodstream/UTI uses."
+      ],
+      "indications": [
+        "crab",
+        "stenotrophomonas"
+      ],
+      "refs": [
+        {
+          "source": "msidc",
+          "page": 42
+        },
+        {
+          "source": "msidc",
+          "page": 53
+        }
+      ],
+      "class": "Tetracycline"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "hap-vap",
+      "name": "Hospital-/Ventilator-Associated Pneumonia",
+      "aliases": [
+        "hap",
+        "vap",
+        "hospital acquired pneumonia",
+        "ventilator associated pneumonia",
+        "nosocomial pneumonia"
+      ],
+      "category": "Respiratory",
+      "icu": true,
+      "summary": "Treat as a syndrome with acquisition timing, MDR risk, respiratory sampling and rapid 48–72 h reassessment. Do not interpret a positive respiratory culture without clinical context.",
+      "riskFactors": [
+        "IV antibiotics within 90 days",
+        "Previous MDR colonisation/infection",
+        "Septic shock at VAP onset",
+        "ARDS",
+        "RRT preceding VAP",
+        "≥5 hospital days before VAP"
+      ],
+      "before": [
+        "Obtain appropriate cultures before antimicrobials when this does not cause harmful delay",
+        "Review previous microbiology and recent antimicrobial exposure",
+        "Check allergy and previous serious antimicrobial adverse reactions",
+        "Check renal function and whether renal replacement therapy is being used",
+        "Obtain a good-quality endotracheal aspirate/non-invasive respiratory specimen when possible",
+        "Assess need for MRSA and MDR Gram-negative coverage using local epidemiology"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Early onset (2–4 days)",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h"
+          ],
+          "duration": "7 days",
+          "page": 13
+        },
+        {
+          "source": "hpusm",
+          "label": "Late onset (≥5 days)",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q8h ± vancomycin 15–20 mg/kg q8–12h"
+          ],
+          "alternative": [
+            "Cefepime 2 g IV q8h ± vancomycin 15–20 mg/kg q8–12h"
+          ],
+          "duration": "7 days",
+          "page": 13
+        },
+        {
+          "source": "msic",
+          "label": "No MDR risk factors",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h OR ceftriaxone 1 g IV q12h"
+          ],
+          "alternative": [
+            "Cefepime 2 g IV q8h OR piperacillin–tazobactam 4.5 g IV q6h"
+          ],
+          "duration": "7 days",
+          "page": 38,
+          "pdfPage": 48
+        },
+        {
+          "source": "msic",
+          "label": "MDR risk factors — Gram-negative coverage",
+          "preferred": [
+            "Cefepime 2 g IV q8h OR piperacillin–tazobactam 4.5 g IV q6h"
+          ],
+          "alternative": [
+            "Meropenem 1 g IV q8h OR imipenem 500 mg IV q6h when clinically appropriate"
+          ],
+          "duration": "7 days",
+          "page": 39,
+          "pdfPage": 49
+        },
+        {
+          "source": "msic",
+          "label": "Specific MDR phenotype",
+          "preferred": [
+            "ESBL: meropenem/imipenem; MRSA: vancomycin; CRAB/CRE require phenotype-directed therapy"
+          ],
+          "alternative": [
+            "Use dedicated MDR guidance and susceptibility results"
+          ],
+          "duration": "Usually 7 days; longer only for delayed response or specific complications",
+          "page": 40,
+          "pdfPage": 50
+        },
+        {
+          "source": "nag",
+          "label": "Early onset (2–4 days)",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h"
+          ],
+          "duration": "5–7 days; adjust to local antibiogram and broaden only if clinical deterioration requires it.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Late onset / severe / Pseudomonas risk",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h OR cefepime 2 g IV q8h"
+          ],
+          "alternative": [
+            "High MDR risk: meropenem 1 g IV q8h OR imipenem/cilastatin 500 mg IV q6h"
+          ],
+          "duration": "7 days; de-escalate to culture/susceptibility. Piperacillin–tazobactam q8h should be infused over 3–4 h.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "why": [
+        "MDR risk factors materially change empirical coverage.",
+        "MSIC notes Acinetobacter, Klebsiella pneumoniae and Pseudomonas aeruginosa among common ICU isolates in the cited MRIC report.",
+        "Aim for ≤7 days in uncomplicated response and de-escalate with microbiology."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 13
+        },
+        {
+          "source": "msic",
+          "page": 36,
+          "pdfPage": 46
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "severe-cap",
+      "name": "Severe Community-Acquired Pneumonia",
+      "aliases": [
+        "severe cap",
+        "scap",
+        "community acquired pneumonia severe",
+        "curb65 3",
+        "curb65 >3"
+      ],
+      "category": "Respiratory",
+      "icu": true,
+      "summary": "Severe CAP requires severity assessment, atypical coverage when appropriate, and escalation to antipseudomonal therapy only when Pseudomonas risk is present.",
+      "before": [
+        "Obtain appropriate cultures before antimicrobials when this does not cause harmful delay",
+        "Review previous microbiology and recent antimicrobial exposure",
+        "Check allergy and previous serious antimicrobial adverse reactions",
+        "Check renal function and whether renal replacement therapy is being used",
+        "Assess CAP severity (e.g. CURB-65/SMART-COP) and ICU need",
+        "Assess strong Pseudomonas risk and recent healthcare/antibiotic exposure"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Severe pneumonia (CURB65 >3)",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h when Pseudomonas risk + azithromycin 500 mg IV/PO q24h"
+          ],
+          "alternative": [
+            "Use syndrome-/risk-specific alternative from local guidance"
+          ],
+          "duration": "5–7 days",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "label": "Severe CAP — usual pathogens",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h + azithromycin 500 mg IV q24h"
+          ],
+          "alternative": [
+            "Ceftriaxone 1 g IV q12h OR cefotaxime 2 g IV q8h + levofloxacin/moxifloxacin"
+          ],
+          "duration": "Usually 5–7 days for β-lactam component; atypical duration varies",
+          "page": 27,
+          "pdfPage": 37
+        },
+        {
+          "source": "msic",
+          "label": "If Pseudomonas risk",
+          "preferred": [
+            "Cefepime 2 g IV q8h"
+          ],
+          "alternative": [
+            "Piperacillin–tazobactam 4.5 g IV q6h"
+          ],
+          "duration": "7 days",
+          "page": 28,
+          "pdfPage": 38
+        },
+        {
+          "source": "nag",
+          "label": "Severe CAP — national 2026-updated pathway",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h; may add azithromycin 500 mg IV/PO q24h for 3 days or doxycycline 100 mg PO q12h when atypical coverage is indicated"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h",
+            "If Pseudomonas risk: piperacillin–tazobactam 4.5 g IV q6–8h OR cefepime 2 g IV q8h"
+          ],
+          "duration": "Usual severe CAP 5–7 days; antipseudomonal regimen 7 days.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "why": [
+        "Current NAG also emphasizes local antibiogram and pseudomonal risk before antipseudomonal therapy; open the live NAG page for the latest national wording."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 27,
+          "pdfPage": 37
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "cns-infection",
+      "name": "Bacterial Meningitis",
+      "aliases": [
+        "meningitis",
+        "bacterial meningitis",
+        "cns infection"
+      ],
+      "category": "CNS",
+      "icu": true,
+      "summary": "Time-critical syndrome: obtain blood cultures/CSF when safe without delaying treatment. Dose selection must achieve CNS exposure.",
+      "before": [
+        "Obtain blood cultures promptly",
+        "Perform lumbar puncture when safe; do not delay time-critical antimicrobials for prolonged investigations",
+        "Assess need for imaging before LP based on neurological features",
+        "Consider age/immunocompromise and Listeria risk"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Adult empirical local regimen",
+          "preferred": [
+            "Ceftriaxone 2 g IV q12h + ampicillin 2 g IV q4h"
+          ],
+          "alternative": [
+            "Use allergy/pathogen-specific regimen"
+          ],
+          "duration": "7–21 days depending on organism/clinical context",
+          "page": 7,
+          "notes": [
+            "Dexamethasone 0.15 mg/kg q6h for 2–4 days is listed in the source."
+          ]
+        },
+        {
+          "source": "nag",
+          "label": "Adult acute bacterial meningitis — empirical",
+          "preferred": [
+            "Ceftriaxone 2 g IV q12h + ampicillin 2 g IV q4h when Listeria coverage is indicated"
+          ],
+          "alternative": [
+            "Cefotaxime 2 g IV q6h + ampicillin 2 g IV q4h",
+            "Severe cephalosporin allergy: consider meropenem 2 g IV q8h"
+          ],
+          "duration": "If no organism is isolated but CSF supports bacterial meningitis and patient responds: 10–14 days; organism-specific durations supersede.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        }
+      ],
+      "why": [
+        "CNS dosing differs from routine dosing because adequate CSF/tissue exposure is required."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "msic",
+          "page": 76
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        }
+      ]
+    },
+    {
+      "id": "brain-abscess",
+      "name": "Brain Abscess",
+      "aliases": [
+        "cerebral abscess",
+        "brain abscess"
+      ],
+      "category": "CNS",
+      "icu": true,
+      "summary": "Treat with prolonged therapy plus source control/neurosurgical assessment when indicated.",
+      "before": [
+        "Obtain blood cultures and neurosurgical/microbiology specimens when feasible",
+        "Assess contiguous ENT/dental source, haematogenous source and prior neurosurgery",
+        "Plan source control/drainage where appropriate"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local empirical regimen",
+          "preferred": [
+            "Ceftriaxone 2 g IV q12h + metronidazole 500 mg IV q8h"
+          ],
+          "alternative": [
+            "Cefotaxime 2 g IV q4–6h + metronidazole 500 mg IV q8h"
+          ],
+          "duration": "4–8 weeks; source lists minimum 2 weeks IV",
+          "page": 7
+        },
+        {
+          "source": "nag",
+          "label": "Brain abscess / subdural empyema — common oral/sinus/haematogenous sources",
+          "preferred": [
+            "Ceftriaxone 2 g IV q12h OR cefotaxime 2 g IV q4–6h, PLUS metronidazole 500 mg IV q8h"
+          ],
+          "alternative": [
+            "Otogenic/healthcare-associated pathways require source-specific antipseudomonal and staphylococcal coverage"
+          ],
+          "duration": "Duration and source control are site/organism dependent; use the live NAG CNS section.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 7
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a2-central-nervous-infections"
+        }
+      ]
+    },
+    {
+      "id": "aspiration-pneumonia",
+      "name": "Aspiration Pneumonia",
+      "aliases": [
+        "aspiration pneumonia",
+        "aspiration"
+      ],
+      "category": "Respiratory",
+      "icu": true,
+      "summary": "Distinguish aspiration pneumonitis from bacterial aspiration infection; syndrome and healthcare exposure determine whether broad Gram-negative/anaerobic coverage is needed.",
+      "before": [
+        "Obtain appropriate cultures before antimicrobials when this does not cause harmful delay",
+        "Review previous microbiology and recent antimicrobial exposure",
+        "Check allergy and previous serious antimicrobial adverse reactions",
+        "Check renal function and whether renal replacement therapy is being used",
+        "Assess for abscess/empyema and need for drainage",
+        "Clarify community vs healthcare-associated aspiration"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local aspiration pneumonia",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h ± metronidazole 500 mg IV q8h"
+          ],
+          "duration": "Use clinical context; distinguish from lung abscess duration",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "label": "Healthcare-associated aspiration / lung abscess",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6h OR cefepime 2 g IV q8h + metronidazole 500 mg IV q8h"
+          ],
+          "alternative": [
+            "Meropenem 1 g IV q8h OR imipenem 500 mg IV q6h"
+          ],
+          "duration": "Aspiration pneumonia 7 days; lung abscess minimum 4 weeks",
+          "page": 34,
+          "pdfPage": 44
+        },
+        {
+          "source": "nag",
+          "label": "Aspiration pneumonia (not chemical pneumonitis)",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h ± metronidazole 500 mg IV q8h when anaerobic coverage is specifically indicated",
+            "β-lactam allergy: clindamycin 600 mg IV/PO q8h"
+          ],
+          "duration": "7 days. Routine anaerobic coverage is not required unless lung abscess/empyema is suspected.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 34
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "lung-abscess-empyema",
+      "name": "Lung Abscess / Empyema",
+      "aliases": [
+        "lung abscess",
+        "empyema",
+        "pleural infection"
+      ],
+      "category": "Respiratory",
+      "icu": true,
+      "summary": "Antibiotics are only one component; drainage/source control is central when a pleural collection is present.",
+      "before": [
+        "Obtain appropriate cultures before antimicrobials when this does not cause harmful delay",
+        "Review previous microbiology and recent antimicrobial exposure",
+        "Check allergy and previous serious antimicrobial adverse reactions",
+        "Check renal function and whether renal replacement therapy is being used",
+        "Obtain pleural fluid/pus culture where feasible",
+        "Arrange drainage for empyema/complicated collection"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local lung abscess",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6–8h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h + metronidazole 500 mg IV q8h"
+          ],
+          "duration": "28–42 days in the source; step down when clinically improved",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "label": "Healthcare-associated aspiration/lung abscess",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g q6h OR cefepime 2 g q8h + metronidazole 500 mg q8h"
+          ],
+          "alternative": [
+            "Meropenem 1 g q8h OR imipenem 500 mg q6h"
+          ],
+          "duration": "Lung abscess minimum 4 weeks; response/imaging dependent",
+          "page": 34
+        },
+        {
+          "source": "nag",
+          "label": "No recent thoracic procedure or HAP/VAP",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6–8h OR ampicillin–sulbactam 3 g IV q6h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h + metronidazole 500 mg IV q8h",
+            "β-lactam allergy: clindamycin 600 mg IV/PO q8h"
+          ],
+          "duration": "After adequate source control: generally 2–4 weeks from drainage/surgery and defervescence; longer (4–6 weeks) if source control is inadequate.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Post-procedure / concomitant HAP-VAP",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h OR cefepime 2 g IV q8h + metronidazole 500 mg IV q8h; add vancomycin when indicated"
+          ],
+          "alternative": [
+            "Meropenem 1 g IV q8h; add vancomycin when indicated"
+          ],
+          "duration": "Source-control dependent; generally 2–6 weeks.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 34
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "pyelonephritis",
+      "name": "Acute Pyelonephritis",
+      "aliases": [
+        "pyelonephritis",
+        "pyelo"
+      ],
+      "category": "Urinary",
+      "icu": false,
+      "summary": "Obtain urine culture before treatment where possible and distinguish uncomplicated from complicated UTI/urosepsis.",
+      "before": [
+        "Urinalysis and urine culture",
+        "Blood cultures if systemically unwell",
+        "Assess obstruction/stone and need for urgent source control",
+        "Check renal function and pregnancy status"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local adult pyelonephritis",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6h + gentamicin 5 mg/kg/24h"
+          ],
+          "alternative": [
+            "Cefuroxime 750–1500 mg IV q8h"
+          ],
+          "duration": "7 days",
+          "page": 9
+        },
+        {
+          "source": "nag",
+          "label": "Complicated UTI / pyelonephritis",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6–8h OR ampicillin–sulbactam 1.5–3 g IV q6h; may add an aminoglycoside when indicated"
+          ],
+          "alternative": [
+            "Cefuroxime 750–1500 mg IV q8h",
+            "Ceftriaxone 2 g IV q24h",
+            "Ceftazidime 2 g IV q8h"
+          ],
+          "duration": "Usually 5–7 days; step down when afebrile >48 h, clinically improving and able to take oral therapy.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 9
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ]
+    },
+    {
+      "id": "urosepsis",
+      "name": "Urosepsis",
+      "aliases": [
+        "urosepsis",
+        "septic urinary tract infection",
+        "uti sepsis"
+      ],
+      "category": "Urinary",
+      "icu": true,
+      "summary": "Treat sepsis and assess for obstructed infected urinary tract, which requires urgent source control.",
+      "before": [
+        "Blood cultures and urine culture",
+        "Assess urinary obstruction/stone and need for urgent drainage",
+        "Review previous urinary isolates and ESBL/CRE risk",
+        "Check renal function"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local empirical regimen",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q8h"
+          ],
+          "alternative": [
+            "Cefepime 1 g IV q8h"
+          ],
+          "duration": "10–14 days in the source",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "label": "Without shock",
+          "preferred": [
+            "Ceftriaxone 2 g IV q24h OR cefotaxime 2 g IV q8h"
+          ],
+          "alternative": [
+            "Ceftazidime 2 g IV q8h OR cefepime 2 g IV q8h"
+          ],
+          "duration": "≥7 days; early urinary source control is a core treatment principle.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        },
+        {
+          "source": "nag",
+          "label": "With shock",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h"
+          ],
+          "alternative": [
+            "Meropenem 1 g IV q8h OR imipenem 500 mg IV q6h"
+          ],
+          "duration": "≥7 days; choose according to severity, resistance risk and local antibiogram, with early source control.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ]
+    },
+    {
+      "id": "septic-shock",
+      "name": "Septic Shock — Undifferentiated Empirical Antibiotic",
+      "aliases": [
+        "septic shock",
+        "sepsis shock",
+        "undifferentiated sepsis"
+      ],
+      "category": "Systemic",
+      "icu": true,
+      "summary": "Use this only as an undifferentiated local starting reference. The final empirical regimen should be driven by suspected source, previous cultures, recent antibiotics and local resistance patterns.",
+      "before": [
+        "Obtain blood cultures before antimicrobials if this does not delay treatment",
+        "Identify likely source and source control requirement",
+        "Review prior cultures/colonisation and recent antibiotics",
+        "Assess allergy, renal function and local resistance patterns"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Non-diabetic — undifferentiated local guide",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q8h"
+          ],
+          "alternative": [
+            "Source-directed therapy may supersede this"
+          ],
+          "duration": "Revise/de-escalate at 48–72 h based on cultures and clinical source",
+          "page": 11
+        },
+        {
+          "source": "hpusm",
+          "label": "Diabetic — undifferentiated local guide",
+          "preferred": [
+            "Ceftazidime 2 g IV q6–8h"
+          ],
+          "alternative": [
+            "Source-directed therapy may supersede this"
+          ],
+          "duration": "Revise/de-escalate at 48–72 h",
+          "page": 11
+        },
+        {
+          "source": "nag",
+          "label": "Sepsis / septic shock — source-directed national principle",
+          "preferred": [
+            "Give broad-spectrum empirical therapy directed at the most likely source and pathogens; incorporate prior microbiology, resistance risk/colonisation and local susceptibility data."
+          ],
+          "alternative": [
+            "If source becomes apparent, switch to the source-specific NAG pathway rather than maintaining an undifferentiated regimen."
+          ],
+          "duration": "Reassess daily; modify/de-escalate at 48–72 h as microbiology and clinical trajectory clarify the diagnosis.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a12-sepsis"
+        }
+      ],
+      "why": [
+        "The MSIC ICU guide stresses rapid microbiological sampling, appropriate empirical coverage, PK/PD optimisation, source control and de-escalation."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 11
+        },
+        {
+          "source": "msic",
+          "page": 2
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a12-sepsis"
+        }
+      ]
+    },
+    {
+      "id": "necrotising-fasciitis",
+      "name": "Necrotising Fasciitis",
+      "aliases": [
+        "nec fasc",
+        "necrotizing fasciitis",
+        "necrotising fasciitis"
+      ],
+      "category": "Skin/Soft Tissue",
+      "icu": true,
+      "summary": "Surgical source control is time-critical. Antimicrobials should not delay debridement.",
+      "before": [
+        "Urgent surgical review and debridement/source control",
+        "Blood cultures and deep operative tissue cultures",
+        "Assess shock and organ support requirements"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Local empirical regimen",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h ± clindamycin 600–900 mg IV q8h"
+          ],
+          "alternative": [
+            "Ampicillin–sulbactam 3 g IV q6h"
+          ],
+          "duration": "7–14 days in the source; tailor to source control and clinical response",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "label": "National source-control principle",
+          "preferred": [
+            "Immediate aggressive surgical debridement is the primary treatment; empirical antimicrobial therapy should be broad and then streamlined to intraoperative culture and susceptibility."
+          ],
+          "alternative": [],
+          "duration": "Duration is source- and response-dependent after adequate debridement.",
+          "notes": [
+            "Repeated debridement may be required for source control."
+          ],
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ]
+    },
+    {
+      "id": "intra-abdominal",
+      "name": "Complicated Intra-Abdominal Infection",
+      "aliases": [
+        "intra abdominal infection",
+        "iai",
+        "peritonitis",
+        "abdominal sepsis"
+      ],
+      "category": "GI",
+      "icu": true,
+      "summary": "Early source control plus appropriate antimicrobial therapy are the core management principles.",
+      "before": [
+        "Obtain blood cultures in septic patients",
+        "Obtain operative/peritoneal specimens when source control is performed",
+        "Assess whether infection is community- or hospital-acquired",
+        "Prioritise source control"
+      ],
+      "recommendations": [
+        {
+          "source": "msic",
+          "label": "Principle",
+          "preferred": [
+            "Use narrower therapy for community-acquired IAI when appropriate; hospital-acquired IAI more often requires MDR-aware coverage"
+          ],
+          "alternative": [
+            "Tailor to local epidemiology and culture"
+          ],
+          "duration": "After adequate source control, duration should be limited and response-driven",
+          "page": 69,
+          "pdfPage": 79
+        },
+        {
+          "source": "nag",
+          "label": "Complicated diverticulitis / appendicitis phenotype — national pathway",
+          "preferred": [
+            "Non-sepsis: amoxicillin–clavulanate 1.2 g IV q6h OR ampicillin–sulbactam 1.5–3 g IV q6h",
+            "Sepsis / organ failure: piperacillin–tazobactam 4.5 g IV q6–8h"
+          ],
+          "alternative": [
+            "Non-sepsis: ceftriaxone 2 g IV q24h OR cefoperazone 1–2 g IV q12h PLUS metronidazole 500 mg IV q8h"
+          ],
+          "duration": "Complicated appendicitis: 4–7 days when adequate source control is achieved and recovery is rapid; reserve carbapenem for high AMR risk.",
+          "notes": [
+            "If piperacillin–tazobactam is given q8h, NAG specifies extended infusion over 3–4 h.",
+            "Source control remains central."
+          ],
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 69
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    },
+    {
+      "id": "infective-endocarditis",
+      "name": "Infective Endocarditis",
+      "aliases": [
+        "endocarditis",
+        "ie",
+        "native valve endocarditis",
+        "prosthetic valve endocarditis"
+      ],
+      "category": "Cardiovascular",
+      "icu": true,
+      "summary": "Empirical therapy depends on native vs prosthetic valve and must be narrowed to organism-specific treatment when cultures are available.",
+      "before": [
+        "Obtain at least 2 sets of blood cultures before antibiotics when feasible",
+        "Clarify native vs prosthetic valve and timing of valve surgery",
+        "Assess for heart failure, embolic/metastatic infection and need for echocardiography",
+        "Check renal function before aminoglycoside/vancomycin-containing regimens"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Native valve — empirical, culture pending",
+          "preferred": [
+            "Ampicillin 2 g IV q4h PLUS gentamicin 3 mg/kg IV q24h PLUS/MINUS cloxacillin 2 g IV q4h"
+          ],
+          "alternative": [
+            "Penicillin allergy: vancomycin 15–20 mg/kg IV q8–12h PLUS gentamicin 3 mg/kg IV q24h"
+          ],
+          "duration": "Source table lists 28–42 days depending on organism; definitive duration must follow organism/valve-specific guidance.",
+          "page": 8
+        },
+        {
+          "source": "hpusm",
+          "label": "Prosthetic valve — empirical, culture pending",
+          "preferred": [
+            "Vancomycin 15–20 mg/kg IV q8–12h PLUS gentamicin 3 mg/kg IV q24h PLUS rifampicin 300–450 mg PO q12h"
+          ],
+          "alternative": [],
+          "duration": "Definitive duration depends on organism and prosthetic-valve context.",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "label": "Prosthetic valve <12 months — empirical",
+          "preferred": [
+            "Vancomycin 15–20 mg/kg IV q12h PLUS gentamicin 3 mg/kg IV q24h PLUS rifampicin 300–450 mg PO q12h"
+          ],
+          "alternative": [
+            "Optional cefepime 2 g IV q8h OR piperacillin/tazobactam 4.5 g IV q6h when non-HACEK Gram-negative coverage is indicated by local epidemiology"
+          ],
+          "duration": "Narrow promptly to pathogen-specific treatment.",
+          "page": 51,
+          "pdfPage": 61
+        },
+        {
+          "source": "nag",
+          "label": "Native valve — empirical",
+          "preferred": [
+            "Ampicillin 2 g IV q4h + gentamicin 3 mg/kg IV q24h; may add cloxacillin 2 g IV q4h when S. aureus is suspected"
+          ],
+          "alternative": [
+            "Antibiotic allergy: vancomycin 15–20 mg/kg IV q8–12h + gentamicin 3 mg/kg IV q24h"
+          ],
+          "duration": "Adjust promptly to culture/susceptibility; culture-negative cases warrant ID review.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a1-cardiovascular-infections"
+        }
+      ],
+      "why": [
+        "Blood cultures before treatment are central to pathogen-directed therapy.",
+        "Aminoglycoside/vancomycin regimens require toxicity monitoring and should be narrowed when cultures permit."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 8
+        },
+        {
+          "source": "msic",
+          "page": 51,
+          "pdfPage": 61
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a1-cardiovascular-infections"
+        }
+      ]
+    },
+    {
+      "id": "cellulitis",
+      "name": "Cellulitis",
+      "aliases": [
+        "skin cellulitis",
+        "soft tissue cellulitis"
+      ],
+      "category": "Skin & soft tissue",
+      "icu": false,
+      "summary": "HPUSM ASP 2025 stratifies cellulitis by severity and primarily targets staphylococci and streptococci.",
+      "before": [
+        "Assess severity and systemic toxicity",
+        "Look for abscess/necrotising infection or another source requiring drainage/source control",
+        "Review allergy history and renal function if IV broad-spectrum therapy is being considered"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Mild",
+          "preferred": [
+            "Cloxacillin 500 mg PO q6h"
+          ],
+          "alternative": [
+            "Amoxicillin–clavulanate 625 mg PO q8h"
+          ],
+          "duration": "5–10 days",
+          "page": 10
+        },
+        {
+          "source": "hpusm",
+          "label": "Moderate",
+          "preferred": [
+            "Cloxacillin 500 mg PO q6h"
+          ],
+          "alternative": [
+            "Ampicillin–sulbactam 3 g IV q6–8h"
+          ],
+          "duration": "7 days",
+          "page": 10
+        },
+        {
+          "source": "hpusm",
+          "label": "Severe",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h"
+          ],
+          "alternative": [
+            "Ampicillin–sulbactam 3 g IV q6–8h"
+          ],
+          "duration": "7 days",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "label": "Severe cellulitis",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h while severe/deep infection is being assessed, then de-escalate when cultures and exclusion of necrotising infection permit"
+          ],
+          "alternative": [
+            "Ampicillin–sulbactam 3 g IV q6h OR amoxicillin–clavulanate 1.2 g IV q8h; allergy pathway is source-specific"
+          ],
+          "duration": "Usually 5–10 days based on response; q8h piperacillin–tazobactam should be infused over 3–4 h.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a14-skin-soft-tissue-infections"
+        }
+      ],
+      "why": [
+        "Severe disease broadens empirical coverage; abscess or necrotising infection requires a different pathway."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a14-skin-soft-tissue-infections"
+        }
+      ]
+    },
+    {
+      "id": "osteomyelitis",
+      "name": "Osteomyelitis",
+      "aliases": [
+        "bone infection",
+        "acute osteomyelitis",
+        "chronic osteomyelitis"
+      ],
+      "category": "Bone & joint",
+      "icu": false,
+      "summary": "HPUSM separates acute empirical treatment from chronic disease, where surgical debridement and tissue culture guide therapy.",
+      "before": [
+        "Obtain appropriate deep/tissue cultures where feasible",
+        "Assess for surgical debridement/source control",
+        "Review prior microbiology, implants and chronicity"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Acute osteomyelitis",
+          "preferred": [
+            "Cloxacillin 2 g IV q6h"
+          ],
+          "alternative": [
+            "Clindamycin 600 mg IV q8h"
+          ],
+          "duration": "2–4 weeks IV followed by oral therapy; total 6 weeks in the source table.",
+          "page": 10
+        },
+        {
+          "source": "hpusm",
+          "label": "Chronic osteomyelitis",
+          "preferred": [
+            "Empirical treatment is not indicated; surgical debridement and tissue culture/susceptibility guide treatment."
+          ],
+          "alternative": [],
+          "duration": "Source table lists 6 weeks to 3 months depending on context.",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "label": "Acute osteomyelitis",
+          "preferred": [
+            "Cloxacillin 2 g IV q6h; tailor to tissue/bone culture"
+          ],
+          "alternative": [
+            "Cefazolin 2 g IV q6–8h for appropriate β-lactam allergy context"
+          ],
+          "duration": "Initial IV 2–4 weeks then oral therapy; minimum total 6 weeks, modified by response. S. aureus osteomyelitis with bacteraemia requires prolonged IV therapy.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ],
+      "why": [
+        "Chronic osteomyelitis is a source-control and culture-directed problem rather than an empirical-antibiotic-only problem."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 10
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ]
+    },
+    {
+      "id": "complicated-uti",
+      "name": "Complicated Urinary Tract Infection",
+      "aliases": [
+        "complicated uti",
+        "cuti",
+        "male uti",
+        "uti with stones"
+      ],
+      "category": "Genitourinary",
+      "icu": false,
+      "summary": "HPUSM ASP 2025 gives a simple local empirical regimen for complicated UTI; resistance phenotype should redirect to the dedicated ESBL/AmpC/CRE pathway when present.",
+      "before": [
+        "Obtain urine culture before antibiotics when feasible",
+        "Assess obstruction/stones and need for source control",
+        "Review previous urine cultures and recent antimicrobials",
+        "Check renal function"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Empirical",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6h"
+          ],
+          "alternative": [
+            "Cefuroxime 750–1500 mg IV q8h"
+          ],
+          "duration": "10–14 days",
+          "page": 9
+        },
+        {
+          "source": "nag",
+          "label": "Complicated UTI",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6–8h OR ampicillin–sulbactam 1.5–3 g IV q6h; may add an aminoglycoside when indicated"
+          ],
+          "alternative": [
+            "Cefuroxime 750–1500 mg IV q8h",
+            "Ceftriaxone 2 g IV q24h",
+            "Ceftazidime 2 g IV q8h"
+          ],
+          "duration": "Usually 5–7 days; use site/source and clinical response to individualise.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ],
+      "why": [
+        "Known ESBL/AmpC/CRE changes the preferred treatment and should not be handled by the uncomplicated empirical card."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 9
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a17-urinary-tract-infections"
+        }
+      ]
+    },
+    {
+      "id": "pcp",
+      "name": "Pneumocystis jirovecii Pneumonia",
+      "aliases": [
+        "pcp",
+        "pjp",
+        "pneumocystis pneumonia"
+      ],
+      "category": "Respiratory / opportunistic",
+      "icu": true,
+      "summary": "MSIC ICU provides pathogen-specific therapy for Pneumocystis jirovecii pneumonia in severe community-acquired pneumonia pathways.",
+      "before": [
+        "Confirm immunocompromised context and obtain appropriate diagnostic specimens where feasible",
+        "Check renal function, potassium and blood counts before high-dose trimethoprim–sulfamethoxazole",
+        "Assess whether adjunctive corticosteroid criteria are met"
+      ],
+      "recommendations": [
+        {
+          "source": "msic",
+          "label": "Preferred",
+          "preferred": [
+            "Trimethoprim–sulfamethoxazole 5 mg/kg (TMP component) IV q6–8h"
+          ],
+          "alternative": [
+            "Pentamidine 4 mg/kg IV daily OR primaquine 30 mg PO q24h PLUS clindamycin 600–900 mg IV q8h"
+          ],
+          "duration": "21 days",
+          "page": 29,
+          "pdfPage": 39
+        },
+        {
+          "source": "nag",
+          "label": "Adult HIV-associated PJP/PCP — national pathway",
+          "preferred": [
+            "Trimethoprim–sulfamethoxazole 15–20 mg/kg/day (TMP component) IV/PO in 3–4 divided doses"
+          ],
+          "alternative": [
+            "Mild–moderate: clindamycin 600 mg IV/PO q8h + primaquine 30 mg base PO q24h; severe: pentamidine 4 mg/kg/day IV OR clindamycin + primaquine"
+          ],
+          "duration": "21 days; severe disease should receive adjunctive corticosteroid according to the NAG regimen.",
+          "notes": [
+            "Consider IV→PO switch after clinical improvement because trimethoprim–sulfamethoxazole and clindamycin have high oral bioavailability.",
+            "Check G6PD status before dapsone or primaquine."
+          ],
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        }
+      ],
+      "why": [
+        "High-dose TMP-SMX is weight-based on the trimethoprim component and requires toxicity monitoring."
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 29,
+          "pdfPage": 39
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        }
+      ]
+    },
+    {
+      "id": "leptospirosis",
+      "name": "Leptospirosis",
+      "aliases": [
+        "lepto",
+        "severe leptospirosis",
+        "weil disease"
+      ],
+      "category": "Tropical / systemic",
+      "icu": true,
+      "summary": "Both HPUSM and MSIC provide Malaysian treatment regimens. Their steroid statements are not identical and are therefore shown separately.",
+      "before": [
+        "Assess organ involvement and severity, including AKI, respiratory failure, hypotension and arrhythmia",
+        "Send appropriate diagnostic testing without delaying treatment when clinical suspicion is high",
+        "Check renal and hepatic function"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Mild",
+          "preferred": [
+            "Doxycycline 100 mg PO q12h for 5–7 days"
+          ],
+          "alternative": [
+            "Azithromycin 500 mg PO q24h for 3 days"
+          ],
+          "duration": "5–7 days depending on regimen",
+          "page": 11
+        },
+        {
+          "source": "hpusm",
+          "label": "Moderate to severe",
+          "preferred": [
+            "Benzylpenicillin 1.5 million units IV q6h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h"
+          ],
+          "duration": "7 days",
+          "notes": [
+            "HPUSM source states to add steroid for all severe leptospirosis."
+          ],
+          "page": 11
+        },
+        {
+          "source": "msic",
+          "label": "Severe disease",
+          "preferred": [
+            "Benzylpenicillin 1.5 million units IV q6h OR ceftriaxone 1 g IV q12h"
+          ],
+          "alternative": [],
+          "duration": "7 days",
+          "notes": [
+            "MSIC source states there is insufficient evidence to support routine corticosteroids in pulmonary haemorrhage."
+          ],
+          "page": 132,
+          "pdfPage": 142
+        },
+        {
+          "source": "msic",
+          "label": "Mild disease",
+          "preferred": [
+            "Azithromycin 500 mg PO q24h for 3 days OR doxycycline 100 mg PO q12h for 5–7 days OR amoxicillin 500 mg PO q8h for 7 days"
+          ],
+          "alternative": [],
+          "duration": "Regimen-specific",
+          "page": 132,
+          "pdfPage": 142
+        },
+        {
+          "source": "nag",
+          "label": "Mild adult disease",
+          "preferred": [
+            "Doxycycline 100 mg PO q12h for 5–7 days OR amoxicillin 500 mg PO q8h for 7 days"
+          ],
+          "alternative": [
+            "Azithromycin 500 mg PO q24h for 3 days; amoxicillin/azithromycin are pregnancy options in the NAG pathway"
+          ],
+          "duration": "5–7 days depending on regimen.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Moderate / severe adult disease",
+          "preferred": [
+            "Benzylpenicillin 1.5 million units IV q6h"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h"
+          ],
+          "duration": "7–10 days; corticosteroids are not routine solely for leptospirosis.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ],
+      "why": [
+        "The source conflict on corticosteroid use is deliberately not reconciled by the app."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 11
+        },
+        {
+          "source": "msic",
+          "page": 132,
+          "pdfPage": 142
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ]
+    },
+    {
+      "id": "melioidosis",
+      "name": "Melioidosis",
+      "aliases": [
+        "burkholderia pseudomallei",
+        "melioid"
+      ],
+      "category": "Tropical / systemic",
+      "icu": true,
+      "summary": "MSIC describes a prolonged two-phase treatment strategy: an IV intensive phase followed by oral eradication therapy, with duration determined by infection site and severity.",
+      "before": [
+        "Obtain cultures; culture is the diagnostic mainstay",
+        "Look for deep-seated abscesses and consider CT/ultrasound abdomen/pelvis in culture-positive disease",
+        "Assess need for drainage or surgical intervention",
+        "Check renal function and TMP-SMX contraindications/interactions"
+      ],
+      "recommendations": [
+        {
+          "source": "msic",
+          "label": "Initial intensive phase",
+          "preferred": [
+            "Meropenem 1 g IV q8h (2 g q8h for CNS infection) OR imipenem 500 mg IV q6h"
+          ],
+          "alternative": [
+            "Ceftazidime 2 g IV q6h"
+          ],
+          "duration": "At least 2 weeks; longer for pneumonia with ICU admission/bacteraemia, deep collections, osteomyelitis, CNS or arterial infection.",
+          "notes": [
+            "Optional TMP-SMX is added in selected sites such as cutaneous disease, osteomyelitis, septic arthritis, CNS infection and deep collections in the cited guide."
+          ],
+          "page": 127,
+          "pdfPage": 137
+        },
+        {
+          "source": "msic",
+          "label": "Duration framework",
+          "preferred": [
+            "Intensive-phase duration and eradication-phase duration are site-specific; the cited table ranges from 2 to 8 weeks intensive therapy and 3 to 6 months eradication therapy for many listed foci."
+          ],
+          "alternative": [],
+          "duration": "Use the site-specific melioidosis duration table.",
+          "page": 129,
+          "pdfPage": 139
+        },
+        {
+          "source": "nag",
+          "label": "Intensive therapy — mild/moderate non-neurological",
+          "preferred": [
+            "Ceftazidime 2 g IV q6h"
+          ],
+          "alternative": [
+            "Escalate to carbapenem pathway for severe disease/clinical indication"
+          ],
+          "duration": "Intensive-phase duration is site/severity dependent; check current NAG pathway and subsequent eradication phase.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Severe / septic shock / neurological",
+          "preferred": [
+            "Severe persistent bacteraemia or severe sepsis: meropenem 1 g IV q8h OR imipenem/cilastatin source-specific high-dose regimen",
+            "Neuromelioidosis or septic shock requiring ICU support with augmented renal clearance: meropenem 2 g IV q8h"
+          ],
+          "alternative": [
+            "Add trimethoprim–sulfamethoxazole for selected neurological, osteoarticular, genitourinary/prostatic, skin/soft-tissue, ocular or pericardial foci per NAG."
+          ],
+          "duration": "Site/severity dependent; de-escalate to ceftazidime once stable when appropriate.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ],
+      "why": [
+        "Severe disease, deep infection and CNS/vascular involvement require longer treatment than uncomplicated infection."
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 126,
+          "pdfPage": 136
+        },
+        {
+          "source": "msic",
+          "page": 129,
+          "pdfPage": 139
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ]
+    },
+    {
+      "id": "clabsi",
+      "name": "Central Line-Associated Bloodstream Infection / CRBSI",
+      "aliases": [
+        "clabsi",
+        "crbsi",
+        "cri",
+        "catheter related bloodstream infection",
+        "central line infection"
+      ],
+      "category": "Bloodstream / device",
+      "icu": true,
+      "summary": "HPUSM provides local empirical options for central-catheter and haemodialysis-catheter infection; definitive duration depends on the organism and catheter strategy.",
+      "before": [
+        "Obtain blood cultures before antibiotics when feasible",
+        "Identify catheter type and assess whether catheter removal is required",
+        "Review prior microbiology and MRSA/MDR risk",
+        "Check renal function before vancomycin/ceftazidime dosing"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Central catheter",
+          "preferred": [
+            "Cloxacillin 2 g IV q4–6h"
+          ],
+          "alternative": [],
+          "duration": "7–10 days in the local table; definitive duration depends on organism and clinical context.",
+          "page": 13
+        },
+        {
+          "source": "hpusm",
+          "label": "Haemodialysis catheter / MRSA-risk context",
+          "preferred": [
+            "Vancomycin 15–20 mg/kg IV PLUS ceftazidime 2 g IV q24h"
+          ],
+          "alternative": [],
+          "duration": "10–14 days in the local table; duration depends on organism isolated from blood culture.",
+          "notes": [
+            "Local table suggests catheter removal."
+          ],
+          "page": 13
+        },
+        {
+          "source": "nag",
+          "label": "Non-tunnelled central venous catheter / PICC — national empirical pathway",
+          "preferred": [
+            "Cloxacillin 2 g IV q4–6h OR cefazolin 2 g IV q8h; may add ceftazidime 2 g IV q8h for Gram-negative coverage if critically ill or with femoral lines"
+          ],
+          "alternative": [
+            "If MRSA risk: vancomycin 15–20 mg/kg IV q8–12h; if prior ESBL colonisation/infection and severely/critically ill: meropenem 2 g IV q8h OR imipenem 1 g IV q8h"
+          ],
+          "duration": "Depends on organism, catheter removal and complications; NAG suggests ID consultation.",
+          "notes": [
+            "Obtain both peripheral and central-line blood cultures when CRBSI is suspected.",
+            "Catheter removal is recommended in the NAG pathway."
+          ],
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a1-cardiovascular-infections"
+        }
+      ],
+      "why": [
+        "Device/source control and pathogen-specific therapy are central to management."
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 13
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a1-cardiovascular-infections"
+        }
+      ]
+    },
+    {
+      "id": "copd-exacerbation",
+      "name": "Infective Exacerbation of COPD",
+      "aliases": [
+        "aecopd",
+        "copd exacerbation",
+        "infective copd exacerbation"
+      ],
+      "category": "Respiratory",
+      "icu": false,
+      "summary": "Antibiotics are for purulent infective exacerbations/ventilated patients; Pseudomonas risk changes therapy.",
+      "riskFactors": [
+        "Previous/chronic Pseudomonas isolation",
+        "Very severe COPD",
+        "Bronchiectasis",
+        "Broad-spectrum antibiotics within 3 months",
+        "Chronic systemic glucocorticoids"
+      ],
+      "before": [
+        "Confirm infective features and sputum purulence",
+        "Review prior sputum cultures and Pseudomonas history",
+        "Assess severity/need for ventilation",
+        "Check allergy and renal function"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Inpatient",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q8h; may add azithromycin 500 mg IV/PO q24h for 3 days"
+          ],
+          "alternative": [
+            "Ceftriaxone 2 g IV q24h; may add azithromycin"
+          ],
+          "duration": "5–7 days",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Inpatient with Pseudomonas risk",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h; may add azithromycin"
+          ],
+          "alternative": [
+            "Cefepime 2 g IV q8h; may add azithromycin"
+          ],
+          "duration": "7 days; q8h piperacillin–tazobactam should be infused over 3–4 h.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ],
+      "why": [
+        "Do not prescribe antibiotics for every COPD exacerbation; purulence plus clinical criteria/ventilation drives antimicrobial use."
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a11-respiratory-infections"
+        }
+      ]
+    },
+    {
+      "id": "liver-abscess",
+      "name": "Pyogenic Liver Abscess",
+      "aliases": [
+        "liver abscess",
+        "pyogenic liver abscess"
+      ],
+      "category": "Gastrointestinal / hepatobiliary",
+      "icu": true,
+      "summary": "Antimicrobial therapy must be paired with drainage/source control when indicated; sepsis shifts empiric breadth.",
+      "before": [
+        "Obtain blood cultures before antibiotics when feasible",
+        "Obtain aspirate/drainage culture when procedure performed",
+        "Assess abscess size and need for drainage",
+        "Assess sepsis/organ failure and prior biliary instrumentation"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Non-sepsis",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6h OR ampicillin–sulbactam 3 g IV q6h"
+          ],
+          "alternative": [
+            "Cefoperazone, ceftriaxone, cefotaxime or cefuroxime ± metronidazole according to anaerobic risk"
+          ],
+          "duration": "2–6 weeks; shorter with adequate drainage and fever resolution; step down when improving.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Sepsis / organ failure",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h"
+          ],
+          "alternative": [
+            "Use source-specific alternatives and resistance-risk assessment"
+          ],
+          "duration": "2–6 weeks; source-control dependent. q8h piperacillin–tazobactam is extended over 3–4 h.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ],
+      "why": [
+        "Drainage/source control can shorten therapy and is part of definitive management."
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    },
+    {
+      "id": "cholecystitis",
+      "name": "Acute Cholecystitis",
+      "aliases": [
+        "cholecystitis"
+      ],
+      "category": "Gastrointestinal / hepatobiliary",
+      "icu": false,
+      "summary": "Severity and source control determine need, spectrum and duration. Carbapenems are reserved for high AMR risk/biliary instrumentation.",
+      "before": [
+        "Assess sepsis/organ failure or perforation/abscess",
+        "Plan definitive biliary source control",
+        "Obtain cultures in severe/complicated disease where appropriate"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Non-sepsis",
+          "preferred": [
+            "Amoxicillin–clavulanate 1.2 g IV q6h OR ampicillin–sulbactam 1.5–3 g IV q6h"
+          ],
+          "alternative": [
+            "Third-generation cephalosporin options according to source"
+          ],
+          "duration": "Usually 4–7 days; selected mild/moderate cases may stop within 24 h after uncomplicated source control.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Sepsis / organ failure / complicated",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6–8h"
+          ],
+          "alternative": [
+            "Reserve carbapenem for high AMR risk/history of biliary instrumentation rather than routine use."
+          ],
+          "duration": "Usually 4–7 days; q8h piperacillin–tazobactam as 3–4 h extended infusion.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    },
+    {
+      "id": "cholangitis",
+      "name": "Acute Cholangitis",
+      "aliases": [
+        "ascending cholangitis",
+        "cholangitis"
+      ],
+      "category": "Gastrointestinal / hepatobiliary",
+      "icu": true,
+      "summary": "Urgent biliary drainage/source control is central; antimicrobial breadth follows severity/acquisition/resistance risk.",
+      "before": [
+        "Assess for urgent biliary drainage",
+        "Obtain blood cultures in sepsis before therapy when feasible",
+        "Review prior biliary procedures and resistant organisms"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Community acquired / non-sepsis",
+          "preferred": [
+            "Amoxicillin–clavulanate or ampicillin–sulbactam source-specific regimen"
+          ],
+          "alternative": [
+            "Third-generation cephalosporin ± metronidazole according to source/context"
+          ],
+          "duration": "Usually 4–7 days; may be shorter after successful drainage and rapid fever resolution.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Sepsis / complicated / hospital acquired",
+          "preferred": [
+            "Piperacillin–tazobactam source-specific regimen"
+          ],
+          "alternative": [
+            "Broaden according to AMR risk and culture/susceptibility"
+          ],
+          "duration": "Source-control dependent; generally 4–7 days after adequate drainage.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    },
+    {
+      "id": "febrile-neutropenia",
+      "name": "High-Risk Febrile Neutropenia",
+      "aliases": [
+        "febrile neutropenia",
+        "neutropenic sepsis"
+      ],
+      "category": "Immunocompromised",
+      "icu": true,
+      "summary": "High-risk patients need rapid antipseudomonal therapy after blood cultures; vancomycin is not routine unless a defined Gram-positive indication exists.",
+      "before": [
+        "Obtain blood cultures promptly",
+        "Give first antipseudomonal dose within 1 hour in high-risk infection",
+        "Assess haemodynamic stability and focal source",
+        "Review prior colonisation/resistance and prophylaxis"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Initial high-risk regimen",
+          "preferred": [
+            "Piperacillin–tazobactam 4.5 g IV q6h; may add amikacin in severe sepsis according to NAG"
+          ],
+          "alternative": [
+            "Cefepime 2 g IV q8h ± amikacin; add metronidazole for selected severe mucositis/intra-abdominal/perianal/colitis contexts"
+          ],
+          "duration": "Generally minimum 5–7 days or until clinical criteria permit stopping; tailor to cultures and neutrophil recovery.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        },
+        {
+          "source": "nag",
+          "label": "Severe sepsis / persistent deterioration",
+          "preferred": [
+            "Meropenem 1 g IV q8h ± vancomycin when a defined MRSA/catheter/SSTI/shock indication exists"
+          ],
+          "alternative": [
+            "Imipenem/cilastatin source-specific severe regimen ± vancomycin"
+          ],
+          "duration": "Reassess and de-escalate; stop empiric vancomycin after 48 h if no Gram-positive evidence.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a5-infections-in-immunocompromised-patients"
+        }
+      ]
+    },
+    {
+      "id": "septic-arthritis",
+      "name": "Septic Arthritis",
+      "aliases": [
+        "septic joint",
+        "native joint septic arthritis"
+      ],
+      "category": "Bone / joint",
+      "icu": false,
+      "summary": "Drainage/washout and culture-directed therapy are central; empirical therapy primarily targets S. aureus/streptococci in typical native-joint disease.",
+      "before": [
+        "Obtain joint aspirate for cell count, Gram stain and culture before antibiotics if this does not delay urgent care",
+        "Obtain blood cultures in systemic illness",
+        "Arrange drainage/washout when indicated"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Native joint empirical — no specific Gram-negative risk",
+          "preferred": [
+            "Cloxacillin 2 g IV q4–6h"
+          ],
+          "alternative": [
+            "Cefazolin 2 g IV q6–8h; clindamycin or vancomycin may be used in selected allergy/MRSA contexts"
+          ],
+          "duration": "Typically 2–4 weeks IV then oral to complete 4–6 weeks, modified by organism/source control/response.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ]
+    },
+    {
+      "id": "prosthetic-joint-infection",
+      "name": "Prosthetic Joint Infection",
+      "aliases": [
+        "pji",
+        "prosthetic joint infection"
+      ],
+      "category": "Bone / joint",
+      "icu": false,
+      "summary": "Do not start routine empirical therapy before adequate cultures in a stable patient; treatment is culture- and surgical-strategy dependent.",
+      "before": [
+        "Withhold empirical antibiotics in stable patient until appropriate specimens are obtained",
+        "Define surgical strategy: DAIR vs one-/two-stage revision/removal",
+        "Obtain multiple deep tissue cultures"
+      ],
+      "recommendations": [
+        {
+          "source": "hpusm",
+          "label": "Culture-directed principle",
+          "preferred": [
+            "Empirical treatment is not recommended before specimens; MSSA pathway uses cloxacillin + rifampicin when implant remains; MRSA pathway uses vancomycin + rifampicin."
+          ],
+          "alternative": [
+            "Follow susceptibility and surgical plan."
+          ],
+          "duration": "Surgical strategy and organism determine duration.",
+          "page": 14
+        },
+        {
+          "source": "nag",
+          "label": "National culture-directed principle",
+          "preferred": [
+            "Empirical treatment is generally not recommended before adequate cultures in stable prosthetic-joint infection."
+          ],
+          "alternative": [
+            "For susceptible staphylococci with retained implant, rifampicin-containing combinations are used in source-specific pathways."
+          ],
+          "duration": "Typically prolonged and surgery-dependent; check current NAG orthopaedic section.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 14
+        },
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a9-orthopaedic-infections"
+        }
+      ]
+    },
+    {
+      "id": "typhoid",
+      "name": "Typhoid Fever",
+      "aliases": [
+        "enteric fever",
+        "salmonella typhi",
+        "typhoid"
+      ],
+      "category": "Tropical / systemic",
+      "icu": false,
+      "summary": "Use susceptibility testing and local resistance data; XDR disease changes treatment.",
+      "before": [
+        "Obtain cultures before therapy when feasible",
+        "Assess severity and complications",
+        "Review travel/exposure and resistance/susceptibility"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Mild adult typhoid",
+          "preferred": [
+            "Ceftriaxone 2–4 g/day IV divided q12–24h OR cefotaxime 2–6 g/day IV divided q8–12h"
+          ],
+          "alternative": [
+            "Ciprofloxacin or azithromycin only according to susceptibility/result and source pathway"
+          ],
+          "duration": "Minimum 7–14 days; IV→PO when improving and an active oral option is available.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        },
+        {
+          "source": "nag",
+          "label": "XDR / resistant severe disease",
+          "preferred": [
+            "Meropenem 1 g IV q8h in the NAG XDR pathway"
+          ],
+          "alternative": [
+            "Use susceptibility and ID/microbiology guidance."
+          ],
+          "duration": "Source-/response-specific; verify live NAG.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a16-tropical-infections"
+        }
+      ]
+    },
+    {
+      "id": "invasive-candidiasis",
+      "name": "Invasive Candidiasis / Candidaemia",
+      "aliases": [
+        "candidaemia",
+        "candidemia",
+        "invasive candidiasis"
+      ],
+      "category": "Fungal / ICU",
+      "icu": true,
+      "summary": "Haemodynamic status, prior azole exposure, Candida species/susceptibility and metastatic complications determine initial therapy and duration.",
+      "before": [
+        "Obtain blood cultures",
+        "Assess for source/device removal",
+        "Assess haemodynamic stability and prior azole exposure",
+        "Evaluate for metastatic complications when candidaemia confirmed"
+      ],
+      "recommendations": [
+        {
+          "source": "msic",
+          "label": "Stable / azole-susceptible context",
+          "preferred": [
+            "Fluconazole: day 1 800 mg then 400 mg q24h in selected stable patients with susceptible Candida and no prior azole exposure"
+          ],
+          "alternative": [
+            "Echinocandin for haemodynamic instability, prior azole exposure or non-albicans risk"
+          ],
+          "duration": "Uncomplicated candidaemia: 14 days from first negative blood culture; metastatic disease requires longer site-specific therapy.",
+          "page": 119,
+          "pdfPage": 129
+        }
+      ],
+      "refs": [
+        {
+          "source": "msic",
+          "page": 119,
+          "pdfPage": 129
+        }
+      ]
+    },
+    {
+      "id": "spontaneous-bacterial-peritonitis",
+      "name": "Spontaneous Bacterial Peritonitis",
+      "aliases": [
+        "sbp",
+        "primary bacterial peritonitis"
+      ],
+      "category": "GI / hepatology",
+      "icu": true,
+      "summary": "Ascitic-fluid infection in cirrhosis. Diagnostic paracentesis, cultures and early therapy are central; distinguish primary SBP from secondary peritonitis.",
+      "before": [
+        "Diagnostic paracentesis with ascitic cell count/differential",
+        "Inoculate ascitic fluid into blood culture bottles at bedside when possible",
+        "Obtain blood cultures in septic patients",
+        "Assess for secondary peritonitis/source-control features"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Primary SBP — national pathway",
+          "preferred": [
+            "Cefotaxime 2 g IV q8h OR ceftriaxone 2 g IV q24h"
+          ],
+          "alternative": [
+            "Amoxicillin–clavulanate 1.2 g IV q6h OR ciprofloxacin 400 mg IV q12h"
+          ],
+          "duration": "5–7 days; IV→PO ciprofloxacin may be considered when clinically appropriate.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "msic",
+          "label": "ICU principle",
+          "preferred": [
+            "Treat when ascitic PMN count is ≥250 cells/mm³ in the appropriate clinical context; bedside inoculation into blood culture bottles improves culture yield."
+          ],
+          "alternative": [],
+          "duration": "Tailor to response and microbiology.",
+          "page": 69,
+          "pdfPage": 79
+        }
+      ],
+      "why": [
+        "A positive culture is not required to start therapy when the clinical/ascitic neutrophil criteria support SBP."
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "msic",
+          "page": 69,
+          "pdfPage": 79
+        }
+      ]
+    },
+    {
+      "id": "clostridioides-difficile",
+      "name": "Clostridioides difficile Infection",
+      "aliases": [
+        "c difficile",
+        "cdi",
+        "clostridium difficile"
+      ],
+      "category": "GI / healthcare-associated",
+      "icu": true,
+      "summary": "Stop unnecessary inciting antimicrobials when possible and classify severity; fulminant disease requires high-dose oral vancomycin plus IV metronidazole in the NAG pathway.",
+      "before": [
+        "Stop or narrow inciting antimicrobial when clinically feasible",
+        "Assess WCC, creatinine, shock, ileus and megacolon",
+        "Institute infection-control precautions according to local policy"
+      ],
+      "recommendations": [
+        {
+          "source": "nag",
+          "label": "Initial non-severe / severe",
+          "preferred": [
+            "Vancomycin 125 mg PO q6h"
+          ],
+          "alternative": [
+            "Non-severe only: metronidazole 400 mg PO q8h if vancomycin unavailable"
+          ],
+          "duration": "10 days.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        },
+        {
+          "source": "nag",
+          "label": "Fulminant colitis",
+          "preferred": [
+            "Vancomycin 500 mg PO q6h PLUS metronidazole 500 mg IV q8h"
+          ],
+          "alternative": [],
+          "duration": "Urgent reassessment and source-control/surgical evaluation according to clinical course.",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ],
+      "refs": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/contents/section-a-adult/a4-gastrointestinal-infections"
+        }
+      ]
+    }
+  ],
+  "organisms": [
+    {
+      "id": "pseudomonas-aeruginosa",
+      "name": "Pseudomonas aeruginosa",
+      "aliases": [
+        "pseudomonas",
+        "p aeruginosa",
+        "psa"
+      ],
+      "gram": "Gram-negative bacillus",
+      "phenotypes": [
+        "Wild type",
+        "MDR",
+        "DTR",
+        "Carbapenem-resistant"
+      ],
+      "links": [
+        "dtr-pseudomonas",
+        "hap-vap",
+        "severe-cap"
+      ],
+      "notes": [
+        "Expected-spectrum table includes activity from selected antipseudomonal β-lactams and aminoglycosides; susceptibility testing remains decisive."
+      ]
+    },
+    {
+      "id": "acinetobacter-baumannii",
+      "name": "Acinetobacter baumannii",
+      "aliases": [
+        "acinetobacter",
+        "a baumannii"
+      ],
+      "gram": "Gram-negative coccobacillus",
+      "phenotypes": [
+        "Susceptible",
+        "MDR/XDR",
+        "CRAB"
+      ],
+      "links": [
+        "crab",
+        "hap-vap"
+      ],
+      "notes": [
+        "Common ICU healthcare-associated pathogen; colonisation is frequent, so infection-vs-colonisation assessment is essential."
+      ]
+    },
+    {
+      "id": "klebsiella-pneumoniae",
+      "name": "Klebsiella pneumoniae",
+      "aliases": [
+        "klebsiella",
+        "k pneumoniae"
+      ],
+      "gram": "Gram-negative bacillus",
+      "phenotypes": [
+        "Wild type",
+        "ESBL",
+        "CRE",
+        "KPC",
+        "NDM/MBL",
+        "OXA-48-like"
+      ],
+      "links": [
+        "esbl",
+        "cre",
+        "hap-vap",
+        "urosepsis"
+      ]
+    },
+    {
+      "id": "escherichia-coli",
+      "name": "Escherichia coli",
+      "aliases": [
+        "e coli",
+        "e. coli",
+        "escherichia"
+      ],
+      "gram": "Gram-negative bacillus",
+      "phenotypes": [
+        "Wild type",
+        "ESBL",
+        "CRE"
+      ],
+      "links": [
+        "esbl",
+        "cre",
+        "urosepsis",
+        "pyelonephritis"
+      ]
+    },
+    {
+      "id": "stenotrophomonas-maltophilia",
+      "name": "Stenotrophomonas maltophilia",
+      "aliases": [
+        "stenotrophomonas",
+        "steno",
+        "s maltophilia"
+      ],
+      "gram": "Gram-negative bacillus",
+      "phenotypes": [
+        "Intrinsic carbapenem resistance"
+      ],
+      "links": [
+        "stenotrophomonas"
+      ]
+    },
+    {
+      "id": "staphylococcus-aureus",
+      "name": "Staphylococcus aureus",
+      "aliases": [
+        "staph aureus",
+        "s aureus",
+        "mssa",
+        "mrsa"
+      ],
+      "gram": "Gram-positive coccus",
+      "phenotypes": [
+        "MSSA",
+        "MRSA",
+        "VISA/VRSA"
+      ],
+      "links": [
+        "mssa",
+        "mrsa",
+        "infective-endocarditis",
+        "hap-vap"
+      ]
+    },
+    {
+      "id": "enterococcus",
+      "name": "Enterococcus spp.",
+      "aliases": [
+        "enterococcus",
+        "vre",
+        "e faecalis",
+        "e faecium"
+      ],
+      "gram": "Gram-positive coccus",
+      "phenotypes": [
+        "E. faecalis",
+        "E. faecium",
+        "VRE"
+      ],
+      "links": [
+        "infective-endocarditis"
+      ]
+    }
+  ],
+  "resistance": [
+    {
+      "id": "esbl",
+      "name": "ESBL-Producing Enterobacterales",
+      "aliases": [
+        "esbl",
+        "esbl e coli",
+        "esbl klebsiella",
+        "esbl-e"
+      ],
+      "kind": "resistance",
+      "summary": "Extended-spectrum β-lactamase phenotype. Treatment depends on infection site, severity and susceptibility; avoid treating the resistance label without the clinical syndrome.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local severe/critical illness signal",
+          "text": "HPUSM uses ertapenem for selected severe ESBL infection and meropenem/imipenem for critically ill/intubated ICU patients; hypoalbuminaemia and infection site alter the choice.",
+          "page": 18
+        },
+        {
+          "source": "msidc",
+          "title": "Uncomplicated cystitis / pyelonephritis-cUTI",
+          "text": "Use susceptible oral/lower-tract options for uncomplicated cystitis; for pyelonephritis/cUTI, TMP-SMX or ciprofloxacin are preferred when susceptible, with aminoglycoside/carbapenem alternatives in selected cases.",
+          "page": 25,
+          "bullets": [
+            "Avoid unnecessary carbapenem exposure when a reliable active narrower option exists."
+          ]
+        },
+        {
+          "source": "msidc",
+          "title": "Infection outside urinary tract",
+          "text": "Carbapenem is the preferred class in the dedicated MSIDC guidance; in critically ill patients or marked hypoalbuminaemia, meropenem/imipenem is favoured over ertapenem.",
+          "page": 25,
+          "bullets": [
+            "Piperacillin–tazobactam and cefepime are not recommended as definitive ESBL therapy outside narrow exceptions described in the source."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 18
+        },
+        {
+          "source": "msidc",
+          "page": 25
+        }
+      ]
+    },
+    {
+      "id": "ampc",
+      "name": "AmpC β-Lactamase-Producing Enterobacterales",
+      "aliases": [
+        "ampc",
+        "enterobacter amp c",
+        "serratia ampc",
+        "citrobacter freundii"
+      ],
+      "kind": "resistance",
+      "summary": "AmpC risk changes interpretation of β-lactam susceptibility. Site and susceptibility determine whether cefepime or a carbapenem is preferred.",
+      "sourceCards": [
+        {
+          "source": "msidc",
+          "title": "Moderate inducible AmpC risk — urinary tract",
+          "text": "Uncomplicated cystitis: use a susceptible lower-tract option such as nitrofurantoin/TMP-SMX or a single aminoglycoside; pyelonephritis/cUTI: TMP-SMX, once-daily aminoglycoside with TDM, or cefepime are source-listed options.",
+          "page": 18,
+          "bullets": [
+            "Confirm susceptibility before choosing definitive therapy.",
+            "Fluoroquinolone is a less-preferred option when susceptible."
+          ]
+        },
+        {
+          "source": "msidc",
+          "title": "Outside urinary tract",
+          "text": "Cefepime is a key preferred option when susceptible; high-inoculum/severe disease and reduced cefepime susceptibility may shift therapy toward a carbapenem.",
+          "page": 18,
+          "bullets": [
+            "Piperacillin–tazobactam is not recommended for moderate/high-risk inducible AmpC organisms in the dedicated consensus."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "msidc",
+          "page": 17
+        }
+      ]
+    },
+    {
+      "id": "cre",
+      "name": "Carbapenem-Resistant Enterobacterales",
+      "aliases": [
+        "carbapenem resistant enterobacterales",
+        "carbapenem resistant klebsiella",
+        "carbapenemase",
+        "cre",
+        "kpc",
+        "mbl",
+        "ndm",
+        "oxa 48",
+        "oxa-48"
+      ],
+      "kind": "resistance",
+      "summary": "CRE is heterogeneous. Determine whether carbapenemase is present and identify the enzyme (e.g. NDM/MBL, KPC, OXA-48-like) because this can change active options.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local CRE framework",
+          "text": "First establish infection vs colonisation/contamination, patient goals/comorbidity and severity. HPUSM notes NDM among common Malaysian carbapenemases.",
+          "page": 19
+        },
+        {
+          "source": "msidc",
+          "title": "Carbapenemase / mechanism-sensitive algorithm",
+          "text": "If a non-carbapenemase CRE remains susceptible to meropenem/imipenem, a high-dose extended-infusion carbapenem can be used in appropriate infection. For carbapenemase-producing or carbapenem-nonsusceptible CRE, site and enzyme determine newer-agent selection.",
+          "page": 34,
+          "bullets": [
+            "Ceftazidime–avibactam is preferred for susceptible serine-carbapenemase CRE outside UTI.",
+            "For NDM/other MBL CRE, ceftazidime–avibactam + aztreonam (simultaneous) or cefiderocol are preferred source-listed strategies.",
+            "Avoid relying on tigecycline for bacteraemia because of low serum exposure."
+          ]
+        }
+      ],
+      "phenotypes": [
+        "NDM / MBL",
+        "KPC",
+        "OXA-48-like",
+        "Non-carbapenemase CRE"
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 19
+        },
+        {
+          "source": "msidc",
+          "page": 34
+        }
+      ]
+    },
+    {
+      "id": "crab",
+      "name": "Carbapenem-Resistant Acinetobacter baumannii",
+      "aliases": [
+        "crab",
+        "carbapenem resistant acinetobacter",
+        "mdr acinetobacter",
+        "xdr acinetobacter"
+      ],
+      "kind": "resistance",
+      "summary": "CRAB management requires infection-vs-colonisation assessment, high-dose sulbactam-based therapy in many Malaysian regimens, severity stratification and susceptibility review.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local targeted CRAB",
+          "text": "HPUSM uses ampicillin–sulbactam for susceptible mild disease and high-dose 9 g q8h extended infusion for moderate–severe disease, with additional agents according to severity/approval.",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "title": "Dedicated CRAB algorithm",
+          "text": "Do not treat colonisation. High-dose sulbactam-based therapy is central when treating true infection; moderate–severe disease generally uses combination therapy.",
+          "page": 42,
+          "bullets": [
+            "Selected companion options include minocycline or polymyxin B; colistin is favoured over polymyxin B when urinary exposure is required.",
+            "Nebulised polymyxin is not recommended routinely.",
+            "Meropenem + colistin has not shown superiority; avoid routine triple meropenem/polymyxin/ampicillin–sulbactam."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "page": 42
+        }
+      ]
+    },
+    {
+      "id": "dtr-pseudomonas",
+      "name": "MDR / DTR Pseudomonas aeruginosa",
+      "aliases": [
+        "dtr pseudomonas",
+        "mdr pseudomonas",
+        "xdr pseudomonas",
+        "carbapenem resistant pseudomonas",
+        "crpa"
+      ],
+      "kind": "resistance",
+      "summary": "Use site, severity and in-vitro activity. DTR Pseudomonas should trigger dedicated MDR guidance rather than automatic carbapenem escalation.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local targeted therapy",
+          "text": "HPUSM lists gentamicin and ceftolozane–tazobactam among targeted MDR/XDR/DTR Pseudomonas options; susceptibility and severity determine use.",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "title": "Dedicated MDR/DTR Pseudomonas algorithm",
+          "text": "If a traditional non-carbapenem antipseudomonal β-lactam remains susceptible, use it at optimised/high-dose extended infusion. For DTR infection, newer active antipseudomonal β-lactams are preferred when susceptible.",
+          "page": 48,
+          "bullets": [
+            "Ceftolozane–tazobactam or ceftazidime–avibactam are preferred source-listed options for DTR cystitis, pyelonephritis/cUTI and infection outside the urinary tract when active.",
+            "Routine combination therapy is not recommended when one preferred newer β-lactam is reliably active.",
+            "The dedicated MSIDC guidance does not recommend gentamicin for Pseudomonas because a CLSI breakpoint is unavailable; this is a visible source difference from HPUSM local guidance."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 21
+        },
+        {
+          "source": "msidc",
+          "page": 48
+        }
+      ]
+    },
+    {
+      "id": "stenotrophomonas",
+      "name": "Stenotrophomonas maltophilia",
+      "aliases": [
+        "steno",
+        "stenotrophomonas",
+        "s maltophilia"
+      ],
+      "kind": "organism-resistance",
+      "summary": "Intrinsically resistant to carbapenems. Distinguish colonisation from infection and use susceptibility/site/severity to select therapy.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local targeted therapy",
+          "text": "HPUSM first-line targeted therapy is TMP-SMX by TMP component; ceftazidime is listed when TMP-SMX is contraindicated.",
+          "page": 17
+        },
+        {
+          "source": "msidc",
+          "title": "Dedicated Stenotrophomonas algorithm",
+          "text": "Treat true infection, not colonisation. TMP-SMX remains a preferred agent; moderate–severe disease may use combination therapy initially.",
+          "page": 53,
+          "bullets": [
+            "Cefiderocol or ceftazidime–avibactam + aztreonam are source-listed less-preferred/alternative strategies.",
+            "Levofloxacin or minocycline may be companion agents according to susceptibility.",
+            "Polymyxins are not recommended; tetracyclines are unsuitable for UTI and should not be relied on alone in bacteraemia."
+          ]
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 17
+        },
+        {
+          "source": "msidc",
+          "page": 53
+        }
+      ]
+    },
+    {
+      "id": "mrsa",
+      "name": "Methicillin-Resistant Staphylococcus aureus",
+      "aliases": [
+        "mrsa",
+        "methicillin resistant staph aureus"
+      ],
+      "kind": "resistance",
+      "summary": "MRSA is resistant to usual antistaphylococcal β-lactams because of altered PBP2a. Use local MRSA risk/prevalence and syndrome severity to decide empirical coverage.",
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local guidance",
+          "text": "HPUSM recommends vancomycin for empirical therapy when MRSA risk is high/severe and for confirmed MRSA; it states vancomycin is inferior to cloxacillin for MSSA.",
+          "page": 15
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 15
+        }
+      ]
+    },
+    {
+      "id": "mssa",
+      "name": "Methicillin-Susceptible Staphylococcus aureus",
+      "aliases": [
+        "mssa",
+        "methicillin sensitive staph aureus"
+      ],
+      "summary": "HPUSM notes MSSA causes community and hospital-acquired bloodstream/invasive infection and that vancomycin is inferior to anti-staphylococcal penicillins such as cloxacillin for MSSA.",
+      "phenotypes": [
+        "MSSA"
+      ],
+      "sourceCards": [
+        {
+          "source": "hpusm",
+          "title": "Local HPUSM principle",
+          "text": "Use an anti-staphylococcal penicillin such as cloxacillin for susceptible S. aureus rather than continuing vancomycin solely for convenience; complicated MSSA infection warrants ID consultation.",
+          "page": 15
+        }
+      ],
+      "refs": [
+        {
+          "source": "hpusm",
+          "page": 15
+        }
+      ]
+    }
+  ],
+  "renal": {
+    "meropenem": {
+      "normal": "LD 1 g IV over 30 min → MD 1 g q8h over 4 h",
+      "high": "CNS/MDR: LD 2 g → MD 2 g q8h over 4 h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "Normal regimen"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1 g q12h (CNS/MDR 2 g q12h)"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "500 mg q12h (CNS/MDR 1 g q12h)"
+        },
+        {
+          "max": 9.99,
+          "text": "500 mg q24h (CNS/MDR 1 g q24h)"
+        }
+      ],
+      "rrt": {
+        "HD": "500 mg q24h + 250 mg after dialysis (CNS/MDR: 1 g q24h + 500 mg after dialysis)",
+        "CVVH": "1 g q12h (CNS/MDR 2 g q12h)",
+        "CVVHD": "1 g q12h (CNS/MDR 2 g q12h)",
+        "CVVHDF": "1 g q12h (CNS/MDR 2 g q12h)"
+      },
+      "source": "msic",
+      "page": 139,
+      "pdfPage": 149
+    },
+    "piperacillin-tazobactam": {
+      "normal": "LD 4.5 g IV over 30 min → MD 4.5 g q6h over 4 h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "Normal regimen"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "4.5 g q6h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "4.5 g q8h"
+        },
+        {
+          "max": 9.99,
+          "text": "2.25 g q6h"
+        }
+      ],
+      "rrt": {
+        "HD": "2.25 g q6h",
+        "CVVH": "2.25 g q6h",
+        "CVVHD": "4.5 g q6–8h",
+        "CVVHDF": "4.5 g q6–8h"
+      },
+      "source": "msic",
+      "page": 139,
+      "pdfPage": 149
+    },
+    "cefepime": {
+      "normal": "LD 2 g IV over 30 min → MD 1–2 g q8–12h over 4 h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "Normal regimen"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1–2 g q12h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "1–2 g q24h"
+        },
+        {
+          "max": 9.99,
+          "text": "1 g q24h"
+        }
+      ],
+      "rrt": {
+        "HD": "1 g q24h + 1 g after dialysis",
+        "CVVH": "1–2 g q8–12h",
+        "CVVHD": "1–2 g q8–12h",
+        "CVVHDF": "1–2 g q8–12h"
+      },
+      "source": "msic",
+      "page": 137,
+      "pdfPage": 147
+    },
+    "ceftazidime": {
+      "normal": "LD 2 g IV over 30 min → MD 1–2 g q8h over 4 h",
+      "high": "Melioidosis/higher MIC: MD 2 g q6h over 4 h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "Normal regimen"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1–2 g q12h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "1–2 g q24h"
+        },
+        {
+          "max": 9.99,
+          "text": "500 mg–1 g q24h"
+        }
+      ],
+      "rrt": {
+        "HD": "1 g q24h + 1 g after dialysis",
+        "CVVH": "1–2 g q12h",
+        "CVVHD": "1–2 g q12h",
+        "CVVHDF": "1–2 g q12h"
+      },
+      "source": "msic",
+      "page": 137,
+      "pdfPage": 147,
+      "note": "High-dose melioidosis/higher-MIC renal schedules differ; open the source before using high-dose regimen in renal failure."
+    },
+    "imipenem": {
+      "normal": "LD 1 g IV over 30 min → MD 500 mg q6h over 4 h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "Normal regimen"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "500 mg q8h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "500 mg q12h"
+        },
+        {
+          "max": 9.99,
+          "text": "250 mg q12h"
+        }
+      ],
+      "rrt": {
+        "HD": "250 mg q12h",
+        "CVVH": "500 mg q8h",
+        "CVVHD": "500 mg q8h",
+        "CVVHDF": "500 mg q8h"
+      },
+      "source": "msic",
+      "page": 138,
+      "pdfPage": 148
+    },
+    "ertapenem": {
+      "normal": "1 g IV q24h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "1 g q24h"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1 g q24h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "500 mg q24h"
+        },
+        {
+          "max": 9.99,
+          "text": "500 mg q24h"
+        }
+      ],
+      "rrt": {
+        "HD": "500 mg q24h",
+        "CVVH": "1 g q24h",
+        "CVVHD": "1 g q24h",
+        "CVVHDF": "1 g q24h"
+      },
+      "source": "msic",
+      "page": 138,
+      "pdfPage": 148,
+      "note": "MSIC advises against ertapenem in critically ill patients with hypoalbuminaemia."
+    },
+    "amoxicillin-clavulanate": {
+      "normal": "1.2 g IV q8h",
+      "bins": [
+        {
+          "min": 51,
+          "text": "1.2 g q8h"
+        },
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1.2 g q12h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "1.2 g q12h"
+        },
+        {
+          "max": 9.99,
+          "text": "Dose requires source review; table extraction is not sufficiently clear for a safe automatic recommendation."
+        }
+      ],
+      "rrt": {
+        "HD": "1.2 g q12h",
+        "CVVH": "1.2 g q8–12h",
+        "CVVHD": "1.2 g q8–12h",
+        "CVVHDF": "1.2 g q8–12h"
+      },
+      "source": "msic",
+      "page": 135,
+      "pdfPage": 145
+    },
+    "vancomycin": {
+      "normal": "LD 20–25 mg/kg actual body weight (max 2 g) → MD 15–20 mg/kg q12h in normal renal function; TDM required.",
+      "bins": [
+        {
+          "min": 51,
+          "text": "LD 20–25 mg/kg; MD 15–20 mg/kg q12h; obtain AUC/TDM levels per protocol."
+        },
+        {
+          "min": 30,
+          "max": 50,
+          "text": "LD 20–25 mg/kg; MD 15–20 mg/kg q24h; TDM."
+        },
+        {
+          "max": 29.99,
+          "text": "LD 20–25 mg/kg, then redose based on TDM."
+        }
+      ],
+      "rrt": {
+        "HD": "LD 20–25 mg/kg, then TDM; many patients require 5–10 mg/kg post-HD supplemental dose.",
+        "CVVH": "LD 20–25 mg/kg; maintenance depends on MIC/effluent rate and TDM.",
+        "CVVHD": "LD 20–25 mg/kg; maintenance depends on MIC/effluent rate and TDM.",
+        "CVVHDF": "LD 20–25 mg/kg; maintenance depends on MIC/effluent rate and TDM."
+      },
+      "source": "msic",
+      "page": 153,
+      "pdfPage": 163,
+      "note": "Use actual body weight for vancomycin loading. AUC-guided monitoring is preferred where available."
+    },
+    "ampicillin": {
+      "normal": "2 g q4–6h",
+      "high": "Higher dose/source-specific regimen in bacteraemia, endocarditis, meningitis and obesity.",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "2 g q6–8h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "2 g q8–12h"
+        },
+        {
+          "max": 9.99,
+          "text": "2 g q12–24h"
+        }
+      ],
+      "rrt": {
+        "HD": "2 g q12h",
+        "CVVH": "2 g q12h",
+        "CVVHD": "2 g q8h",
+        "CVVHDF": "2 g q6–8h"
+      },
+      "source": "msic",
+      "page": 136,
+      "pdfPage": 146
+    },
+    "benzylpenicillin": {
+      "normal": "2–4 MU q4–6h",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "1.5–3 MU q4–6h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "1–2 MU q4–6h"
+        },
+        {
+          "max": 9.99,
+          "text": "1–2 MU q4–6h (use source table/clinical context)"
+        }
+      ],
+      "rrt": {
+        "HD": "1–2 MU q4–6h",
+        "CVVH": "2 MU q4–6h",
+        "CVVHD": "2–3 MU q4–6h",
+        "CVVHDF": "2–4 MU q4–6h"
+      },
+      "source": "msic",
+      "page": 136,
+      "pdfPage": 146,
+      "note": "The source table should be reviewed for the exact indication-specific normal dose and severe-infection context."
+    },
+    "cefazolin": {
+      "normal": "2 g q8h",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "2 g q8h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "2 g q12h"
+        },
+        {
+          "max": 9.99,
+          "text": "1 g q24h"
+        }
+      ],
+      "rrt": {
+        "HD": "1 g q24h + 1 g after dialysis",
+        "CVVH": "2 g q12h",
+        "CVVHD": "2 g q12h",
+        "CVVHDF": "2 g q12h"
+      },
+      "source": "msic",
+      "page": 137,
+      "pdfPage": 147
+    },
+    "ciprofloxacin": {
+      "normal": "400 mg IV q8–12h",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "Unchanged from indication-specific regimen"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "400 mg q12–24h"
+        },
+        {
+          "max": 9.99,
+          "text": "400 mg q24h"
+        }
+      ],
+      "rrt": {
+        "HD": "400 mg q24h",
+        "CVVH": "400 mg q8–12h",
+        "CVVHD": "400 mg q8–12h",
+        "CVVHDF": "400 mg q8–12h"
+      },
+      "source": "msic",
+      "page": 138,
+      "pdfPage": 148
+    },
+    "daptomycin": {
+      "normal": "6–10 mg/kg q24h",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "Unchanged"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "6–10 mg/kg q48h"
+        },
+        {
+          "max": 9.99,
+          "text": "6–10 mg/kg q48h"
+        }
+      ],
+      "rrt": {
+        "HD": "6–10 mg/kg q48h",
+        "CVVH": "6 mg/kg q24–48h",
+        "CVVHD": "6 mg/kg q24–48h",
+        "CVVHDF": "6 mg/kg q24–48h"
+      },
+      "source": "msic",
+      "page": 138,
+      "pdfPage": 148
+    },
+    "levofloxacin": {
+      "normal": "750 mg IV/PO q24h",
+      "bins": [
+        {
+          "min": 31,
+          "max": 50,
+          "text": "750 mg q48h"
+        },
+        {
+          "min": 10,
+          "max": 30,
+          "text": "500 mg q48h"
+        },
+        {
+          "max": 9.99,
+          "text": "500 mg q48h"
+        }
+      ],
+      "rrt": {
+        "HD": "500 mg q48h",
+        "CVVH": "500 mg q24h",
+        "CVVHD": "500 mg q24h",
+        "CVVHDF": "500 mg q24h"
+      },
+      "source": "msic",
+      "page": 139,
+      "pdfPage": 149
+    }
+  },
+  "ivpo": {
+    "checklist": [
+      "Haemodynamically stable / improving vital signs",
+      "Clinical inflammatory response stable or improving",
+      "Functional GI tract and no major absorption problem",
+      "Active oral agent with suitable bioavailability/spectrum is available",
+      "No syndrome/device/source reason requiring continued IV therapy",
+      "Document total duration, stop date and follow-up plan"
+    ],
+    "consider": [
+      "Pneumonia",
+      "Skin/soft-tissue infection",
+      "Urinary tract infection",
+      "Intra-abdominal infection without deep collection",
+      "Uncomplicated Gram-negative bacteraemia"
+    ],
+    "avoid": [
+      "Endocarditis",
+      "Central nervous system infection",
+      "Empyema during early treatment",
+      "High-risk neutropenia/severe infection during chemotherapy-related neutropenia",
+      "Implant/prosthesis/IV-catheter infection during early treatment",
+      "Melioidosis before adequate IV intensive phase",
+      "Severe necrotising/GAS soft-tissue infection",
+      "Severely immunocompromised patient when source requires IV",
+      "Staphylococcus aureus bacteraemia"
+    ],
+    "notes": [
+      "NAG notes that adequately drained abscess/empyema, osteomyelitis and septic arthritis may be switched after ≥2 weeks IV in appropriate improving patients.",
+      "MSIC also flags endocarditis, CNS infection and S. aureus bacteraemia as conditions not recommended for routine early IV→PO conversion."
+    ],
+    "sources": [
+      {
+        "source": "nag",
+        "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-6-iv-to-oral-switch"
+      },
+      {
+        "source": "msic",
+        "page": 8
+      }
+    ]
+  },
+  "nagSnapshot": {
+    "edition": "4th Edition",
+    "officialLatestUpdate": "January 2026",
+    "snapshotReviewed": "2026-09-09",
+    "sourceUrl": "https://sites.google.com/moh.gov.my/nag",
+    "whatsNewUrl": "https://sites.google.com/moh.gov.my/nag/information/whats-new",
+    "renalUrl": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-2-antibiotic-dosages-in-patients-with-impaired-renal-function",
+    "pregnancyUrl": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-4-antibiotic-in-pregnancy-lactation",
+    "pkUrl": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin",
+    "ivpoUrl": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-6-iv-to-oral-switch",
+    "rule": "Structured NAG data are searchable offline, but every NAG-derived result retains a live link to check the official current source."
+  },
+  "specialPopulations": {
+    "hypoalbuminaemia": {
+      "name": "Hypoalbuminaemia (albumin ≤25 g/L)",
+      "source": "msic",
+      "page": 142,
+      "pdfPage": 152,
+      "summary": "Highly protein-bound antimicrobials may have increased free fraction, volume of distribution and clearance, reducing exposure despite a higher unbound fraction.",
+      "drugs": [
+        "ceftriaxone",
+        "cloxacillin",
+        "ertapenem",
+        "vancomycin"
+      ],
+      "principles": [
+        "Avoid ertapenem in critically ill patients with marked hypoalbuminaemia in the cited MSIC appendix.",
+        "Use drug-specific loading/maintenance or TDM strategies rather than reducing dose solely because albumin is low."
+      ]
+    },
+    "obesity": {
+      "name": "Obesity (BMI ≥30 kg/m²)",
+      "source": "msic",
+      "page": 156,
+      "pdfPage": 166,
+      "summary": "Dosing weight depends on antimicrobial properties. Volume of distribution informs loading dose; clearance informs maintenance dose.",
+      "principles": [
+        "MSIC defines AdjBW = IBW + 0.4 × (ABW − IBW).",
+        "IBW: male 50 + 0.91 × (height cm −152.4); female 45.5 + 0.91 × (height cm −152.4).",
+        "Drug-specific obesity recommendations should supersede generic weight rules."
+      ]
+    },
+    "ecmo": {
+      "name": "ECMO",
+      "source": "msic",
+      "page": 8,
+      "summary": "ECMO can alter antimicrobial pharmacokinetics through circuit sequestration, haemodilution, altered volume of distribution and drug elimination; available antibiotic dosing data are limited.",
+      "principles": [
+        "Use standard/critical-illness loading exposure unless a drug-specific source states otherwise.",
+        "Prioritise TDM when available for narrow-therapeutic-index agents."
+      ]
+    },
+    "augmented-renal-clearance": {
+      "name": "Augmented Renal Clearance",
+      "source": "msic",
+      "page": 5,
+      "summary": "Critically ill patients can clear renally eliminated antimicrobials faster than expected, risking underexposure.",
+      "principles": [
+        "Use measured/estimated renal function plus clinical context; prolonged/continuous β-lactam infusion and TDM may improve target attainment."
+      ]
+    }
+  },
+  "tdm": {
+    "vancomycin": {
+      "sources": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin",
+          "summary": "NAG: AUC/MIC is the efficacy exposure metric; TDM is indicated when vancomycin is expected for >48 h, with more frequent monitoring when PK is unstable."
+        },
+        {
+          "source": "msic",
+          "page": 153,
+          "pdfPage": 163,
+          "summary": "MSIC provides loading, renal/RRT regimens and sampling schedules; its ICU appendix lists AUC24/MIC target 400–600."
+        }
+      ]
+    },
+    "aminoglycoside": {
+      "sources": [
+        {
+          "source": "nag",
+          "url": "https://sites.google.com/moh.gov.my/nag/appendices/appendix-1-clinical-pharmacokinetic-guide-aminoglycoside-vancomycin",
+          "summary": "NAG describes extended-interval/single-daily dosing and lists patient groups where it is not appropriate, including pregnancy, CrCl <30 mL/min, dialysis, endocarditis and haemodynamic instability."
+        },
+        {
+          "source": "msic",
+          "page": 152,
+          "pdfPage": 162,
+          "summary": "MSIC provides timed level sampling for single-daily and conventional aminoglycoside dosing and recommends more frequent monitoring with changing renal function/nephrotoxins."
+        }
+      ]
+    }
+  },
+  "bundledReferences": [
+    {
+      "source": "hpusm",
+      "label": "HPUSM ASP 2025",
+      "file": "./references/HPUSM_ASP_2025.pdf"
+    },
+    {
+      "source": "msic",
+      "label": "MSIC Adult ICU Antimicrobial 2023",
+      "file": "./references/MSIC_Adult_ICU_Antimicrobial_2023.pdf"
+    },
+    {
+      "source": "msidc",
+      "label": "MSIDC MDR Gram-Negatives 2024",
+      "file": "./references/MSIDC_MDR_Gram_Negatives_2024.pdf"
+    },
+    {
+      "source": "wellington",
+      "label": "Wellington ICU Antibiotic Summary 2022",
+      "file": "./references/Wellington_ICU_Antibiotic_Summary_2022.pdf"
+    },
+    {
+      "source": "preg",
+      "label": "NAG Antibiotic in Pregnancy & Lactation 2024",
+      "file": "./references/NAG_Pregnancy_Lactation_2024.pdf"
+    }
+  ]
+}
