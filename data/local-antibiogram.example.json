@@ -1,0 +1,22 @@
+{
+  "status": "TEMPLATE_ONLY",
+  "institution": "HPUSM",
+  "unit": "example: Adult ICU",
+  "dateRange": {"from": null, "to": null},
+  "method": {
+    "firstIsolatePerPatient": true,
+    "breakpointStandard": null,
+    "breakpointVersion": null
+  },
+  "rows": [
+    {
+      "organismId": "pseudomonas-aeruginosa",
+      "drugId": "piperacillin-tazobactam",
+      "numberTested": null,
+      "percentSusceptible": null
+    }
+  ],
+  "reviewer": null,
+  "effectiveDate": null,
+  "note": "Do not enter invented percentages. Replace this template only with a validated institutional cumulative antibiogram."
+}
